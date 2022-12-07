@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>阿广的blog</title>
+    <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/</link>
+    <description>Recent content on 阿广的blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Nov 2022 16:18:08 +0800</lastBuildDate><atom:link href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>常用网站工具推荐</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/</link>
+      <pubDate>Wed, 30 Nov 2022 16:18:08 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/</guid>
+      <description>一、辅助工具1、图床工具 Gimhoy图床 无限流量 无限外链 全网CDN 永久免费 https://pic.gimhoy.com/ 2、js代码加密压缩 js加密 这个是一个本站对JavaScript</description>
+    </item>
+    
+    <item>
+      <title>Hugo 通过 ShortCodes 添加视频</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/</link>
+      <pubDate>Wed, 30 Nov 2022 16:11:26 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/</guid>
+      <description>Hugo 通过 ShortCodes 添加视频针对 Hugo 博客如何通过插入 ShortCodes 添加视频的详细说明 ⑅︎◡̈︎* 在 md 文件中嵌入 ShortCodes 时，其查找顺序如下： /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html /themes/&amp;lt;THEME&amp;gt;/layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html 即优先查找你的项目的根目录下的</description>
+    </item>
+    
+    <item>
+      <title>hugo博客添加字数统计和阅读需要xx分钟的功能</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/</link>
+      <pubDate>Wed, 30 Nov 2022 16:11:26 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/</guid>
+      <description>给hugo博客添加字数统计和阅读需要xx分钟的功能修改于2021-02-16 20:01:56阅读 5460 缘由在看别人博客时经常在文章标题下面见到有</description>
+    </item>
+    
+    <item>
+      <title>hugo开发主题-模板</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Wed, 30 Nov 2022 16:11:26 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/</guid>
+      <description>hugo开发主题-模板Hugo 用到最后，终究还是免不了走上自己修改甚至开发主题的道路，本篇介绍 Hugo 的核心之一：模板。 1. 基本介绍模板指的是 HTML 的模</description>
+    </item>
+    
+    <item>
+      <title>hugo搭建个人博客-进阶设置</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Wed, 30 Nov 2022 16:11:26 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/</guid>
+      <description>hugo搭建个人博客-进阶设置1. 添加菜单栏页面我们可以自己建立新的菜单页面1 ，比如我新建life页面用作展示阅读的书籍、电影和游览的景点。</description>
+    </item>
+    
+    <item>
+      <title>Hugo添加Valine评论系统</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 30 Nov 2022 16:11:26 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Hugo添加Valine评论系统 以LeaveIt主题为例 最近将博客的生成器由Hexo转回到Hugo了，在这之后选了一些主题，试过Even,J</description>
+    </item>
+    
+    <item>
+      <title>关于Hugo的配置</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo1/</link>
+      <pubDate>Wed, 30 Nov 2022 16:11:26 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo1/</guid>
+      <description>一、hugo的thoml文件配置 baseURL 服务器地址 title 网站标题 theme 主题 paginate 显示几篇文章 menu头部导航 配置name和url identifier标识、与n</description>
+    </item>
+    
+    <item>
+      <title>hugo静态资源网站完整创建流程</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo/</link>
+      <pubDate>Tue, 29 Nov 2022 19:49:56 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo/</guid>
+      <description>一、hugo环境配置第一步去GitHub搜索hugo下载地址https://github.com/gohugoio/hugo/release</description>
+    </item>
+    
+    <item>
+      <title>vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建</title>
+      <link>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/vue-graphql/</link>
+      <pubDate>Tue, 29 Nov 2022 19:43:16 +0800</pubDate>
+      
+      <guid>https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/vue-graphql/</guid>
+      <description>一、创建vue3.2+ts项目 1.创建项目命令 yarn create vite 2.选择typescript 3.cd项目根目录 4.yarn 安装依赖 5.yarn serve 运行项目 6.配置@符 在vit</description>
+    </item>
+    
+  </channel>
+</rss>

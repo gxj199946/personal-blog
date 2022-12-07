@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Hugo 通过 ShortCodes 添加视频 | 阿广的blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="Hugo 通过 ShortCodes 添加视频针对 Hugo 博客如何通过插入 ShortCodes 添加视频的详细说明 ⑅︎◡̈︎* 在 md 文件中嵌入 ShortCodes 时，其查找顺序如下： /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html 即优先查找你的项目的根目录下的">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo 通过 ShortCodes 添加视频"/>
+<meta name="twitter:description" content="Hugo 通过 ShortCodes 添加视频针对 Hugo 博客如何通过插入 ShortCodes 添加视频的详细说明 ⑅︎◡̈︎* 在 md 文件中嵌入 ShortCodes 时，其查找顺序如下： /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html 即优先查找你的项目的根目录下的"/>
+
+  <meta property="og:title" content="Hugo 通过 ShortCodes 添加视频" />
+<meta property="og:description" content="Hugo 通过 ShortCodes 添加视频针对 Hugo 博客如何通过插入 ShortCodes 添加视频的详细说明 ⑅︎◡̈︎* 在 md 文件中嵌入 ShortCodes 时，其查找顺序如下： /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html 即优先查找你的项目的根目录下的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-30T16:11:26+08:00" />
+<meta property="article:modified_time" content="2022-11-30T16:11:26+08:00" />
+<meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com">阿广的blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="首页">首页</a></li>
+          
+          <li><a href="/archive/" title="存档">存档</a></li>
+          
+          <li><a href="/recommend/" title="推荐">推荐</a></li>
+          
+          <li><a href="/about/" title="关于我">关于我</a></li>
+          
+          <li><a href="https://github.com/roninro/hugo-theme-puppet/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/markdown/" title="markdown">markdown</a>
+            
+            <a class="tag" href="/tags/css/" title="css">css</a>
+            
+            <a class="tag" href="/tags/html/" title="html">html</a>
+            
+          </div>
+          <h1>Hugo 通过 ShortCodes 添加视频</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Wed, Nov 30, 2022
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="hugo-通过-shortcodes-添加视频">Hugo 通过 ShortCodes 添加视频<a class="anchorjs-link" href="#hugo-%e9%80%9a%e8%bf%87-shortcodes-%e6%b7%bb%e5%8a%a0%e8%a7%86%e9%a2%91"></a></h2><p>针对 <code>Hugo</code> 博客如何通过插入 <code>ShortCodes</code> 添加视频的详细说明 ⑅︎◡̈︎*</p>
+<p>在 <code>md</code> 文件中嵌入 <code>ShortCodes</code> 时，其查找顺序如下：</p>
+<ol>
+<li><code>/layouts/shortcodes/&lt;SHORTCODE&gt;.html</code></li>
+<li><code>/themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html</code></li>
+</ol>
+<p>即优先查找你的项目的根目录下的 <code>/layouts/shortcodes</code> 文件夹下的模板文件，再查找 <code>theme</code> 文件夹下的 <code>/layouts/shortcodes</code> 文件夹。</p>
+<h2 id="1-创建-html-模板">1. 创建 <code>html</code> 模板<a class="anchorjs-link" href="#1-%e5%88%9b%e5%bb%ba-html-%e6%a8%a1%e6%9d%bf"></a></h2><p>我们在 <code>/layouts/shortcodes/</code> 目录下创建一个 <code>bilibili.html</code> 并粘贴下面的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">&lt;!DOCTYPE HTML&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>&lt;<span style="color:#ff79c6">html</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  &lt;<span style="color:#ff79c6">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#6272a4">&lt;!-- style 样式 是为了让网页上的视频框按比例显示而非固定的大小 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    &lt;<span style="color:#ff79c6">style</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text/css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>      .<span style="color:#50fa7b">aspect-ratio</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#ff79c6">position</span>: <span style="color:#ff79c6">relative</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        <span style="color:#ff79c6">padding-bottom</span>: <span style="color:#bd93f9">75</span><span style="color:#8be9fd">%</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>      .<span style="color:#50fa7b">aspect-ratio</span> <span style="color:#ff79c6">iframe</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#ff79c6">position</span>: <span style="color:#ff79c6">absolute</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        <span style="color:#ff79c6">left</span>: <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        <span style="color:#ff79c6">top</span>: <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>      }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    &lt;/<span style="color:#ff79c6">style</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  &lt;/<span style="color:#ff79c6">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>  &lt;<span style="color:#ff79c6">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;aspect-ratio&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>      &lt;<span style="color:#ff79c6">iframe</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>              <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://player.bilibili.com/player.html?bvid={{.Get 0 }}&amp;page={{ if .Get 1 }}{{.Get 1}}{{ else }}1&amp;high_quality=1&amp;danmaku=0{{end}}&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>              <span style="color:#50fa7b">scrolling</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;no&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>              <span style="color:#50fa7b">border</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>              <span style="color:#50fa7b">frameborder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;no&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>              <span style="color:#50fa7b">framespacing</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>              <span style="color:#50fa7b">allowfullscreen</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>              <span style="color:#50fa7b">sandbox</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;allow-top-navigation allow-same-origin allow-forms allow-scripts&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>              &gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>      &lt;/<span style="color:#ff79c6">iframe</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>      <span style="color:#6272a4">&lt;!-- src 中的 &amp;high_quality=1&amp;danmaku=0 设定了高清程度并默认屏蔽弹幕 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>      <span style="color:#6272a4">&lt;!-- sandbox 阻止了点击视频中的按钮跳转到B站的行为 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>    &lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>  &lt;/<span style="color:#ff79c6">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>&lt;/<span style="color:#ff79c6">html</span>&gt;
+</span></span></code></pre></div><blockquote>
+<p>如果仅仅设置了 <code>sandbox</code> ，却没有令 <code>high_quality</code> 的值为 <code>1</code> ，那么用户是切换不了视频质量的，即只能使用 <code>360P</code> ，而点击了 720P 或者 1080P 都无效。</p>
+</blockquote>
+<p>‍</p>
+<p><strong>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</strong></p>
+<h3 id="关于b站链接的参数介绍">关于B站链接的参数介绍<a class="anchorjs-link" href="#%e5%85%b3%e4%ba%8eb%e7%ab%99%e9%93%be%e6%8e%a5%e7%9a%84%e5%8f%82%e6%95%b0%e4%bb%8b%e7%bb%8d"></a></h3><p>B站的链接有点薛定谔，不同的视频显示的链接参数不尽相同，但是总的来说有以下类型：</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cid</td>
+<td>chat id，每个 chat id 对应一组弹幕池 如填了 aid ，这个字段不填也没关系</td>
+</tr>
+<tr>
+<td>aid</td>
+<td>article id ，视频的 av 号 就是B站的 avxxxx 后面的数字</td>
+</tr>
+<tr>
+<td>bvid</td>
+<td>bilibili video id ，视频的 bv 号 2020.03 时候，B站把 av 号根据一定的算法转成这个了 如果填了 bvid ，那么 aid 不填也可以</td>
+</tr>
+<tr>
+<td>page</td>
+<td>第几个视频，起始下标为 1 （默认值也是为1） 就是B站视频，选集里的第几个视频</td>
+</tr>
+<tr>
+<td>as_wide</td>
+<td>是否宽屏 1: 宽屏，0: 小屏</td>
+</tr>
+<tr>
+<td>high_quality</td>
+<td>是否高清 1: 高清，0: 最低视频质量（默认） 如视频有 360P 720P 1080P 三种，默认或者 high_quality=0 是最低 360P high_quality=1 是最高1080P</td>
+</tr>
+<tr>
+<td>danmaku</td>
+<td>是否开启弹幕 1: 开启（默认），0: 关闭</td>
+</tr>
+<tr>
+<td>t</td>
+<td>打开时，自动跳转到某个时间，并且自动播放（单位秒） 比如 t=60 ，那么自动跳转到1分钟，且自动播放</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-嵌入b站视频">2. 嵌入B站视频<a class="anchorjs-link" href="#2-%e5%b5%8c%e5%85%a5b%e7%ab%99%e8%a7%86%e9%a2%91"></a></h2><p>在此 html 中，我设定的 <code>src</code> 的传入参数是 <code>bvid</code> 和 <code>page</code> ，其中 page 是视频的指定视频选集 ( 对于多集视频可以自定义传参，默认为 <code>1</code> ) 。</p>
+<p>在 markdown 中需要嵌入视频的位置使用以下形式即可：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{${<span style="color:#ff79c6">&lt;</span> bilibili BV1sz4y197L8 <span style="color:#ff79c6">&gt;</span>}} <span style="color:#6272a4"># 记得去掉 $ ，我为了博客中不显示该视频增加上去的</span>
+</span></span></code></pre></div><p>对于有多集的视频，我想指定第 10 集，则是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{${<span style="color:#ff79c6">&lt;</span> bilibili BV1sz4y197L8 <span style="color:#bd93f9">10</span> <span style="color:#ff79c6">&gt;</span>}} <span style="color:#6272a4"># 记得去掉 $ ，我为了博客中不显示该视频增加上去的</span>
+</span></span></code></pre></div><p>‍效果展示 ( 超燃的视频，强烈推荐戴耳机感受 )：
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    
+    <style type="text/css">
+      .aspect-ratio {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+      }
+
+      .aspect-ratio iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="aspect-ratio">
+      <iframe
+              src="https://player.bilibili.com/player.html?bvid=BV1sz4y197L8&page=1&high_quality=1&danmaku=0"
+              scrolling="no" 
+              border="0" 
+              frameborder="no" 
+              framespacing="0" 
+              allowfullscreen="true"
+              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+              >
+      </iframe>
+      
+      
+    </div>
+  </body>
+
+</html></p>
+<h2 id="3-嵌入-youtube-视频">3. 嵌入 YouTube 视频<a class="anchorjs-link" href="#3-%e5%b5%8c%e5%85%a5-youtube-%e8%a7%86%e9%a2%91"></a></h2><p>Hugo 貌似支持直接使用 <code>YouTube</code> 的视频嵌入，因为在我的博客的项目工程中我没有找到相关的 html 模板。YouTube 的网站链接做的相对友好：https://www.youtube.com/watch?v=XXXXXXXXXXX ，只需要把 <code>v=</code> 后面的内容复制到 <code>ShortCodes</code> 中即可，嵌入方式如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{${<span style="color:#ff79c6">&lt;</span> youtube WNeLUngb<span style="color:#ff79c6">-</span>Xg <span style="color:#ff79c6">&gt;</span>}} <span style="color:#6272a4"># 理由同上，去掉该行的 $</span>
+</span></span></code></pre></div><p>如果你想要自动播放，可以将其参数设置为 <code>true</code> 实现。由于我们不能将命名和未命名的参数混在一起使用，因此需要将尚未命名的视频 ID 分配给参数 <code>id</code> ：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{${<span style="color:#ff79c6">&lt;</span> youtube <span style="color:#8be9fd;font-style:italic">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;w7Ft2ymGmfc&#34;</span> autoplay<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;true&#34;</span> <span style="color:#ff79c6">&gt;</span>}} <span style="color:#6272a4"># 理由同上，去掉该行的 $</span>
+</span></span></code></pre></div><p>‍</p>
+<p>‍</p>
+<p>如果你的网站中无法直接嵌入 <code>YouTube</code> 的视频，那么如法炮制，在 <code>/layouts/shortcodes/</code> 目录下创建一个 <code>youbube.html</code> 并粘贴下面的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embed video-player&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  &lt;<span style="color:#ff79c6">iframe</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>          <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;youtube-player&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>          <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text/html&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>          <span style="color:#50fa7b">width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;640&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>          <span style="color:#50fa7b">height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;385&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>          <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.youtube.com/embed/{{ index .Params 0 }}?autoplay=1&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>          <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#f1fa8c">                 position: absolute; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#f1fa8c">                 top: 0; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#f1fa8c">                 left: 0; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#f1fa8c">                 width: 100%; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#f1fa8c">                 height: 100%; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#f1fa8c">                 border:0;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>          <span style="color:#50fa7b">allowfullscreen</span> <span style="color:#50fa7b">frameborder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>  &lt;/<span style="color:#ff79c6">iframe</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#6272a4">&lt;!-- autoplay 也可以设置为 0 禁止自动播放，但是在 Safari 中无论如何设置都无法自动播放 --&gt;</span>
+</span></span></code></pre></div><p>然后再按照以上的 <code>ShortCodes</code> 进行嵌入即可。</p>
+<p>或者你也可以通过直接在 <code>markdown</code> 中输入以下内容实现视频插入 ( 如果你不是经常需要嵌入视频的话 ) ：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embed video-player&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>     <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  &lt;<span style="color:#ff79c6">iframe</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;youtube-player&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>          <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text/html&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>          <span style="color:#50fa7b">width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;640&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>          <span style="color:#50fa7b">height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;385&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>          <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.youtube.com/embed/WNeLUngb-Xg?autoplay=1&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>          <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#f1fa8c">                 position: absolute; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#f1fa8c">                 top: 0; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#f1fa8c">                 left: 0; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#f1fa8c">                 width: 100%; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#f1fa8c">                 height: 100%; 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#f1fa8c">                 border:0;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>          <span style="color:#50fa7b">allowfullscreen</span> <span style="color:#50fa7b">frameborder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>  &lt;/<span style="color:#ff79c6">iframe</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>&lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span></code></pre></div><p>‍</p>
+<p><strong>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</strong></p>
+<p>‍</p>
+<p>‍</p>
+<p>‍</p>
+<h5 id="以下内容如果没有科学上网看不到也打不开"><del>以下内容如果没有科学上网看不到也打不开</del><a class="anchorjs-link" href="#%e4%bb%a5%e4%b8%8b%e5%86%85%e5%ae%b9%e5%a6%82%e6%9e%9c%e6%b2%a1%e6%9c%89%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91%e7%9c%8b%e4%b8%8d%e5%88%b0%e4%b9%9f%e6%89%93%e4%b8%8d%e5%bc%80"></a></h5><p>‍</p>
+<p>‍</p>
+<p>‍</p>
+<p>‍</p>
+<p>效果展示 1 ( 使用 <code>ShortCodes</code> )：</p>
+<iframe src="https://www.youtube.com/embed/WNeLUngb-Xg" allowfullscreen="" title="YouTube Video" style="box-sizing: border-box; margin: 0px; border: 0px; position: absolute; top: 0px; left: 0px; width: 895.15px; height: 503.513px;"></iframe>
+<p>‍</p>
+<p>‍</p>
+<p>‍</p>
+<p>效果展示 2 ( 插入 <code>html</code> 语句 )：</p>
+<iframe class="youtube-player" type="text/html" width="640" height="385" src="https://www.youtube.com/embed/pICAha0nsb0?autoplay=0" allowfullscreen="" frameborder="0" style="box-sizing: border-box; margin: 0px; border: 0px; position: absolute; top: 0px; left: 0px; width: 895.15px; height: 503.513px;"></iframe>
+<p>‍</p>
+<p>‍</p>
+<h3 id="参考链接">参考链接：<a class="anchorjs-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5"></a></h3><blockquote>
+<p><a href="https://gohugo.io/templates/shortcode-templates/" target="_blank">Create Your Own Shortcodes</a></p>
+<p><a href="https://gohugo.io/content-management/shortcodes/#youtube" target="_blank">Shortcodes Of YouTube</a></p>
+</blockquote>
+<h2 id="本文结束"><strong>本文结束。</strong><a class="anchorjs-link" href="#%e6%9c%ac%e6%96%87%e7%bb%93%e6%9d%9f"></a></h2>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" data-toggle="tooltip" data-placement="top" title="hugo博客添加字数统计和阅读需要xx分钟的功能">
+              Previous<br>
+              <span>hugo博客添加字数统计和阅读需要xx分钟的功能</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/recommend/common1/" data-toggle="tooltip" data-placement="top" title="常用网站工具推荐">
+              Next<br>
+              <span>常用网站工具推荐</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://weibo.com/u/5337408690/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://space.bilibili.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-bilibili fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; 阿广的blog 2022  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

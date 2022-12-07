@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>hugo静态资源网站完整创建流程 | 阿广的blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="一、hugo环境配置第一步去GitHub搜索hugo下载地址https://github.com/gohugoio/hugo/release">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo静态资源网站完整创建流程"/>
+<meta name="twitter:description" content="一、hugo环境配置第一步去GitHub搜索hugo下载地址https://github.com/gohugoio/hugo/release"/>
+
+  <meta property="og:title" content="hugo静态资源网站完整创建流程" />
+<meta property="og:description" content="一、hugo环境配置第一步去GitHub搜索hugo下载地址https://github.com/gohugoio/hugo/release" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-29T19:49:56+08:00" />
+<meta property="article:modified_time" content="2022-11-29T19:49:56+08:00" />
+<meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com">阿广的blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="首页">首页</a></li>
+          
+          <li><a href="/archive/" title="存档">存档</a></li>
+          
+          <li><a href="/recommend/" title="推荐">推荐</a></li>
+          
+          <li><a href="/about/" title="关于我">关于我</a></li>
+          
+          <li><a href="https://github.com/roninro/hugo-theme-puppet/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/markdown/" title="markdown">markdown</a>
+            
+            <a class="tag" href="/tags/css/" title="css">css</a>
+            
+            <a class="tag" href="/tags/html/" title="html">html</a>
+            
+          </div>
+          <h1>hugo静态资源网站完整创建流程</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Tue, Nov 29, 2022
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="一hugo环境配置">一、hugo环境配置<a class="anchorjs-link" href="#%e4%b8%80hugo%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae"></a></h2><h4 id="第一步去githubhttpsgithubcom搜索hugo">第一步去<a href="https://github.com" target="_blank">GitHub</a>搜索hugo<a class="anchorjs-link" href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e5%8e%bbgithubhttpsgithubcom%e6%90%9c%e7%b4%a2hugo"></a></h4><p>下载地址<a href="https://github.com/gohugoio/hugo/releases" target="_blank">https://github.com/gohugoio/hugo/releases</a>
+选择发行版</p>
+<h4 id="第二步查看发行版hugoexe">第二步查看发行版hugo.exe<a class="anchorjs-link" href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e6%9f%a5%e7%9c%8b%e5%8f%91%e8%a1%8c%e7%89%88hugoexe"></a></h4><p>根据自己的环境下载</p>
+<h4 id="第三步下载最新版的扩展的hugoexe实际根据需求选择">第三步下载最新版的扩展的hugo.exe,实际根据需求选择<a class="anchorjs-link" href="#%e7%ac%ac%e4%b8%89%e6%ad%a5%e4%b8%8b%e8%bd%bd%e6%9c%80%e6%96%b0%e7%89%88%e7%9a%84%e6%89%a9%e5%b1%95%e7%9a%84hugoexe%e5%ae%9e%e9%99%85%e6%a0%b9%e6%8d%ae%e9%9c%80%e6%b1%82%e9%80%89%e6%8b%a9"></a></h4><p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva3.sinaimg.cn/large/005PddOWly8h8kz0sij0rj30gh0dhmzl.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h4 id="第四步配置环境">第四步配置环境<a class="anchorjs-link" href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e9%85%8d%e7%bd%ae%e7%8e%af%e5%a2%83"></a></h4><h6 id="建一个目录">建一个目录<a class="anchorjs-link" href="#%e5%bb%ba%e4%b8%80%e4%b8%aa%e7%9b%ae%e5%bd%95"></a></h6><p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva1.sinaimg.cn/large/005PddOWly8h8kz5p3klaj30ew084mxl.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h4 id="添加环境">添加环境<a class="anchorjs-link" href="#%e6%b7%bb%e5%8a%a0%e7%8e%af%e5%a2%83"></a></h4><p>在系统变量Path编辑 ，然后输入D:\Hugo\bin
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva4.sinaimg.cn/large/005PddOWly8h8kz6vwyw0j30y70n8n4u.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h4 id="第五步检查安装情况">第五步检查安装情况<a class="anchorjs-link" href="#%e7%ac%ac%e4%ba%94%e6%ad%a5%e6%a3%80%e6%9f%a5%e5%ae%89%e8%a3%85%e6%83%85%e5%86%b5"></a></h4><p>win + r 输入cmd打开终端，输入hugo version （有显示相关信息即安装成功）
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva3.sinaimg.cn/large/005PddOWly8h8kz9w2kecj30uk02i74q.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h2 id="二-新建站点">二、 新建站点<a class="anchorjs-link" href="#%e4%ba%8c-%e6%96%b0%e5%bb%ba%e7%ab%99%e7%82%b9"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>在bin目录下进去终端输入hugo <span style="color:#ff79c6">new</span> site 站点文件夹名称
+</span></span></code></pre></div><p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva4.sinaimg.cn/large/005PddOWly8h8kzubvpzbj30cb02iwen.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h2 id="三-安装主题">三、 安装主题<a class="anchorjs-link" href="#%e4%b8%89-%e5%ae%89%e8%a3%85%e4%b8%bb%e9%a2%98"></a></h2><h4 id="1-下载地址httpsthemesgohugoio">1、 下载地址：<a href="https://themes.gohugo.io" target="_blank">https://themes.gohugo.io</a><a class="anchorjs-link" href="#1-%e4%b8%8b%e8%bd%bd%e5%9c%b0%e5%9d%80httpsthemesgohugoio"></a></h4><p>下载自己喜欢的主题，进入themes文件夹，输入git命令下载</p>
+<h4 id="2-配置两种方式和启动站点">2、 配置（两种方式）和启动站点<a class="anchorjs-link" href="#2-%e9%85%8d%e7%bd%ae%e4%b8%a4%e7%a7%8d%e6%96%b9%e5%bc%8f%e5%92%8c%e5%90%af%e5%8a%a8%e7%ab%99%e7%82%b9"></a></h4><p>（1）复制<strong>m10c</strong>主题文件夹中exampleSite的content和config.toml文件覆盖掉根目录下的content和config.toml文件
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva3.sinaimg.cn/large/005PddOWly8h8kzzu0b7qj313q0h4tce.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure>
+（2）在原配置文件config.toml中添加theme=“<strong>m10c</strong>”（对应的主题名称）
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva2.sinaimg.cn/large/005PddOWly8h8l0365zlqj30bm028gln.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure>
+（3）启动博客
+进入项目根目录，在终端中输入 hugo server</p>
+<p>启动成功后访问地址<a href="http://localhost:1313/" target="_blank">http://localhost:1313/</a>
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva1.sinaimg.cn/large/005PddOWly8h8l0cx3t1aj30qi0d7ad5.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h2 id="四-新建文件写文章用">四、 新建文件（写文章用）<a class="anchorjs-link" href="#%e5%9b%9b-%e6%96%b0%e5%bb%ba%e6%96%87%e4%bb%b6%e5%86%99%e6%96%87%e7%ab%a0%e7%94%a8"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>    在终端输入hugo <span style="color:#ff79c6">new</span> post<span style="color:#ff79c6">/</span>MyBlog.md
+</span></span></code></pre></div><p>（在content中新建post文件夹，并在post中生成MyBlog.md文件）
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva1.sinaimg.cn/large/005PddOWly8h8l0je392dj30j403tt8y.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="到这里就是搭建基本hugo博客的内容了还有一步是部署到远程githubhttpsgithubcom仓库上下次继续补充接下来讲一下几个注意的点">到这里就是搭建基本Hugo博客的内容了，还有一步是部署到远程<a href="https://github.com" target="_blank">GitHub</a>仓库上，下次继续补充。接下来讲一下几个注意的点：<a class="anchorjs-link" href="#%e5%88%b0%e8%bf%99%e9%87%8c%e5%b0%b1%e6%98%af%e6%90%ad%e5%bb%ba%e5%9f%ba%e6%9c%achugo%e5%8d%9a%e5%ae%a2%e7%9a%84%e5%86%85%e5%ae%b9%e4%ba%86%e8%bf%98%e6%9c%89%e4%b8%80%e6%ad%a5%e6%98%af%e9%83%a8%e7%bd%b2%e5%88%b0%e8%bf%9c%e7%a8%8bgithubhttpsgithubcom%e4%bb%93%e5%ba%93%e4%b8%8a%e4%b8%8b%e6%ac%a1%e7%bb%a7%e7%bb%ad%e8%a1%a5%e5%85%85%e6%8e%a5%e4%b8%8b%e6%9d%a5%e8%ae%b2%e4%b8%80%e4%b8%8b%e5%87%a0%e4%b8%aa%e6%b3%a8%e6%84%8f%e7%9a%84%e7%82%b9"></a></h3><blockquote>
+<p>1.、在安装Hugo压缩包时，因为国内在GitHub上下载东西有时是很慢的，这里我在网上找到一个工具：FreeDownloadManager
+(下载地址：[FLM] <a href="https://www.freedownloadmanager.org/zh" target="_blank">https://www.freedownloadmanager.org/zh</a> 可以解决下载超慢的问题</p>
+</blockquote>
+<blockquote>
+<p>2 、注意下载后要配置环境变量 PATH，不然无法在终端查找是否安装</p>
+</blockquote>
+<blockquote>
+<p>3、 第一种配置theme的方式，要注意config.toml是否有themes=&ldquo;xxx&quot;的语句，有就删除，就可以正确启动站点，不然会找不到主题模块，无法启动</p>
+</blockquote>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://tva4.sinaimg.cn/large/005PddOWly8h8l0prpdzyj30gm05bmxh.jpg" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<blockquote>
+<p>4、在博客文件上删除draft: true语句或者改为false,true代表是草稿不会在页面上展示，这里我调试的时候会导致我文章没法显示出来，去掉或改掉后就可以了</p>
+</blockquote>
+<h2 id="五部署到远程githubhttpsgithubcom仓库上">五、部署到远程<a href="https://github.com" target="_blank">GitHub</a>仓库上<a class="anchorjs-link" href="#%e4%ba%94%e9%83%a8%e7%bd%b2%e5%88%b0%e8%bf%9c%e7%a8%8bgithubhttpsgithubcom%e4%bb%93%e5%ba%93%e4%b8%8a"></a></h2>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/vue-graphql/" data-toggle="tooltip" data-placement="top" title="vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建">
+              Previous<br>
+              <span>vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/hugo1/" data-toggle="tooltip" data-placement="top" title="关于Hugo的配置">
+              Next<br>
+              <span>关于Hugo的配置</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://weibo.com/u/5337408690/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://space.bilibili.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-bilibili fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; 阿广的blog 2022  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Themes Guide | 阿广的blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="滚动的石头不会长青苔">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Themes Guide"/>
+<meta name="twitter:description" content="滚动的石头不会长青苔"/>
+
+  <meta property="og:title" content="Themes Guide" />
+<meta property="og:description" content="滚动的石头不会长青苔" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/series/themes-guide/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  <link rel="alternate" type="application/rss+xml" href="/series/themes-guide/index.xml" title="阿广的blog" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com">阿广的blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="首页">首页</a></li>
+          
+          <li><a href="/archive/" title="存档">存档</a></li>
+          
+          <li><a href="/recommend/" title="推荐">推荐</a></li>
+          
+          <li><a href="/about/" title="关于我">关于我</a></li>
+          
+          <li><a href="https://github.com/roninro/hugo-theme-puppet/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+
+
+
+<header class="intro-header style-text">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Themes Guide</h1>
+          
+          
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1
+      postlist-container">
+      
+      <div class="post-preview">
+  <a href="/recommend/common1/">
+      <h2 class="post-title">常用网站工具推荐</h2>
+      
+      <div class="post-content-preview">
+        
+        一、辅助工具1、图床工具 Gimhoy图床 无限流量 无限外链 全网CDN 永久免费 https://pic.gimhoy.com/ 2、js代码加密压缩 js加密 这个是一个本站对JavaScript
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/">
+      <h2 class="post-title">Hugo 通过 ShortCodes 添加视频</h2>
+      
+      <div class="post-content-preview">
+        
+        Hugo 通过 ShortCodes 添加视频针对 Hugo 博客如何通过插入 ShortCodes 添加视频的详细说明 ⑅︎◡̈︎* 在 md 文件中嵌入 ShortCodes 时，其查找顺序如下： /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html …
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/">
+      <h2 class="post-title">hugo博客添加字数统计和阅读需要xx分钟的功能</h2>
+      
+      <div class="post-content-preview">
+        
+        给hugo博客添加字数统计和阅读需要xx分钟的功能修改于2021-02-16 20:01:56阅读 5460 缘由在看别人博客时经常在文章标题下面见到有
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/">
+      <h2 class="post-title">hugo开发主题-模板</h2>
+      
+      <div class="post-content-preview">
+        
+        hugo开发主题-模板Hugo 用到最后，终究还是免不了走上自己修改甚至开发主题的道路，本篇介绍 Hugo 的核心之一：模板。 1. 基本介绍模板指的是 HTML 的模
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/">
+      <h2 class="post-title">hugo搭建个人博客-进阶设置</h2>
+      
+      <div class="post-content-preview">
+        
+        hugo搭建个人博客-进阶设置1. 添加菜单栏页面我们可以自己建立新的菜单页面1 ，比如我新建life页面用作展示阅读的书籍、电影和游览的景点。
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">
+      <h2 class="post-title">Hugo添加Valine评论系统</h2>
+      
+      <div class="post-content-preview">
+        
+        Hugo添加Valine评论系统 以LeaveIt主题为例 最近将博客的生成器由Hexo转回到Hugo了，在这之后选了一些主题，试过Even,J
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo1/">
+      <h2 class="post-title">关于Hugo的配置</h2>
+      
+      <div class="post-content-preview">
+        
+        一、hugo的thoml文件配置 baseURL 服务器地址 title 网站标题 theme 主题 paginate 显示几篇文章 menu头部导航 配置name和url identifier标识、与n
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Wed, Nov 30, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/hugo/">
+      <h2 class="post-title">hugo静态资源网站完整创建流程</h2>
+      
+      <div class="post-content-preview">
+        
+        一、hugo环境配置第一步去GitHub搜索hugo下载地址https://github.com/gohugoio/hugo/release
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Tue, Nov 29, 2022
+  </p>
+</div>
+<hr>
+      
+      <div class="post-preview">
+  <a href="/post/vue-graphql/">
+      <h2 class="post-title">vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建</h2>
+      
+      <div class="post-content-preview">
+        
+        一、创建vue3.2+ts项目 1.创建项目命令 yarn create vite 2.选择typescript 3.cd项目根目录 4.yarn 安装依赖 5.yarn serve 运行项目 6.配置@符 在vit
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  Puppet  on Tue, Nov 29, 2022
+  </p>
+</div>
+<hr>
+      
+    </div>
+  </div>
+</div>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://weibo.com/u/5337408690/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://space.bilibili.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-bilibili fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; 阿广的blog 2022  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>hugo开发主题-模板 | 阿广的blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="hugo开发主题-模板Hugo 用到最后，终究还是免不了走上自己修改甚至开发主题的道路，本篇介绍 Hugo 的核心之一：模板。 1. 基本介绍模板指的是 HTML 的模">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo开发主题-模板"/>
+<meta name="twitter:description" content="hugo开发主题-模板Hugo 用到最后，终究还是免不了走上自己修改甚至开发主题的道路，本篇介绍 Hugo 的核心之一：模板。 1. 基本介绍模板指的是 HTML 的模"/>
+
+  <meta property="og:title" content="hugo开发主题-模板" />
+<meta property="og:description" content="hugo开发主题-模板Hugo 用到最后，终究还是免不了走上自己修改甚至开发主题的道路，本篇介绍 Hugo 的核心之一：模板。 1. 基本介绍模板指的是 HTML 的模" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-30T16:11:26+08:00" />
+<meta property="article:modified_time" content="2022-11-30T16:11:26+08:00" />
+<meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com">阿广的blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="首页">首页</a></li>
+          
+          <li><a href="/archive/" title="存档">存档</a></li>
+          
+          <li><a href="/recommend/" title="推荐">推荐</a></li>
+          
+          <li><a href="/about/" title="关于我">关于我</a></li>
+          
+          <li><a href="https://github.com/roninro/hugo-theme-puppet/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/markdown/" title="markdown">markdown</a>
+            
+            <a class="tag" href="/tags/css/" title="css">css</a>
+            
+            <a class="tag" href="/tags/html/" title="html">html</a>
+            
+          </div>
+          <h1>hugo开发主题-模板</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Wed, Nov 30, 2022
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h1 id="hugo开发主题-模板">hugo开发主题-模板<a class="anchorjs-link" href="#hugo%e5%bc%80%e5%8f%91%e4%b8%bb%e9%a2%98-%e6%a8%a1%e6%9d%bf"></a></h1><p>Hugo 用到最后，终究还是免不了走上自己修改甚至开发主题的道路，本篇介绍 Hugo 的核心之一：模板。</p>
+<h2 id="1-基本介绍">1. 基本介绍<a class="anchorjs-link" href="#1-%e5%9f%ba%e6%9c%ac%e4%bb%8b%e7%bb%8d"></a></h2><p>模板指的是 HTML 的模板，是将 HTML 中的一些内容抽象为变量，在页面渲染时才进行替换的一种方法，如果学过 Go，会比较容易理解，因为 Hugo 的模板正式以 Go 的 <code>html/template</code> 和 <code>text/template</code> 两个库为基础的。</p>
+<p>简而言之，Hugo 中提到模板就是提到 HTML，写模板就是写 HTML。</p>
+<p>Hugo 主题中 HTML 的入口文件为 <code>_default/baseof.html</code>，这是所有页面渲染时的默认模板，除非你指定了在查找顺序上具有更高优先级的 <code>baseof.html</code> 文件。</p>
+<p><em>注：查找顺序将在第 2 节介绍。</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;!-- layouts/_default/baseof.html --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;!DOCTYPE html&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>&lt;html&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  &lt;head&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    &lt;meta charset=&#34;utf-8&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    &lt;title&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        {{ block &#34;title&#34; . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>            &lt;!-- Blocks may include default content. --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>            {{ .Site.Title }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    	{{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    &lt;/title&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>  &lt;/head&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  &lt;body&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    &lt;!-- Code that all your templates share, like a header --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    {{ block &#34;main&#34; . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>      &lt;!-- The part of the page that begins to differ between templates --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    {{ block &#34;footer&#34; . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    &lt;!-- More shared code, perhaps a footer but that can be overridden if need be in  --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  &lt;/body&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>&lt;/html&gt;
+</span></span></code></pre></div><p>上面的代码与普通 HTML 代码的区别就是以双大括号 <code>{{ }}</code> 包围的区域，这就是模板的写法。以 <code>{{ .Site.Title }}</code> 为例，在渲染时会用主题配置文件 <code>config.toml</code> 中定义的 <code>title</code> 字段替换，是不是就像被抽象而出的变量?</p>
+<p><code>{{ block &quot;title&quot; }}</code> 是一种更大的抽象范围：代码块，我们会在其它的 HTML 文件中定义这段代码块，然后在渲染时替换这一部分内容，比如，我们在 <code>layouts/_default/list.html</code> 中定义了 <code>title</code> 和 <code>main</code> 代码块如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{{ define &#34;title&#34; }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  &lt;!-- This will override the default value set in baseof.html; i.e., &#34;{{.Site.Title}}&#34; in the original example--&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  {{ .Title }} &amp;ndash; {{ .Site.Title }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>{{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>  &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  {{ .Content }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>{{ end }}
+</span></span></code></pre></div><p>渲染时会替换掉 <code>baseof.html</code> 文件中如下内容，注意，额外定义的这部分代码要以 <code>{{ block “title”}}</code> 开始，指明替换哪一段 block，所有的模板语法代码段都要以 <code>{{ end }}</code> 结束。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{{ block &#34;title&#34; . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    &lt;!-- Blocks may include default content. --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    {{ .Site.Title }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>{{ end }}
+</span></span></code></pre></div><p>实际的操作是 <code>list.html</code> 从 <code>baseof.html</code> 继承所有代码，然后用自己定义的 <code>title</code> 和 <code>main</code> 代码段替换相关内容，是在 <code>list.html</code> 中操作的，不是在 <code>baseof.html</code> 中操作的。</p>
+<h2 id="2-页面查找顺序">2. 页面查找顺序<a class="anchorjs-link" href="#2-%e9%a1%b5%e9%9d%a2%e6%9f%a5%e6%89%be%e9%a1%ba%e5%ba%8f"></a></h2><p>Hugo 主题所有的 HTML 文件都位于主题目录下 <code>layouts</code> 目录中，我们所看到的博客的每个页面的渲染，都要首先从这里选择一个 HTML 文件作为模板，页面查找顺序指的是渲染页面时在 <code>layouts</code> 目录下的查找顺序。比如，Home Page 首先在 <code>layouts</code> 根目录下查找 <code>index.html</code> 文件，如果找不到，查找 <code>home.html</code> 文件或 <code>list.html</code> 文件，如果依然找不到，在 <code>layouts/_default</code> 目录下查找这三个文件。</p>
+<p>与查找顺序相关的，除了上例提到的文件夹的不同，还和页面类型（Kind）、输出格式（Output Format）、语言（Language）等有关，我们主要关注的是<strong>页面类型 Kind</strong>。</p>
+<p>页面类型有两种：single page 和 list page。前者用于单个页面渲染，后者用于在单个页面中渲染多个内容，举个例子，一个归档页面通常包含数十篇文章，这就属于 list page。其中，regular page 属于前者，section page、home page、taxonomy list page、taxonomy term page 属于后者。下面进行一一介绍。</p>
+<p><em>注：home page 是个例外，它虽然属于 list page，但有自己的专用模板。</em></p>
+<h4 id="home-page">home page<a class="anchorjs-link" href="#home-page"></a></h4><p>网站首页通常和其它页面不同，因此有自己的专用模板，而且当网站只有一个页面时，home page 是唯一需要的文件。</p>
+<p>home page 可以读取 <code>config.toml</code> 中定义的网站全局变量，也可以读取 <code>content/_index.md</code> 中的元数据（通常以 yaml/toml 格式定义在开头，称为 front matter）。</p>
+<p>一些重要的文件查找顺序如下，其中 Home page 是主页面，Base template for home page 是主页面继承的模板，RSS home 是主页面的 RSS 文件。</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>OutputFormat</th>
+<th>Suffix</th>
+<th>Template Lookup Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home page</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/index.html layouts/home.html layouts/list.html layouts/_default/index.html layouts/_default/home.html layouts/_default/list.html</td>
+</tr>
+<tr>
+<td>Base template for home page</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/index-baseof.html layouts/home-baseof.html layouts/list-baseof.html layouts/baseof.html layouts/_default/index-baseof.html layouts/_default/home-baseof.html layouts/_default/list-baseof.html layouts/_default/baseof.html</td>
+</tr>
+<tr>
+<td>RSS home</td>
+<td>RSS</td>
+<td>xml</td>
+<td>layouts/index.xml layouts/home.xml layouts/list.xml layouts/_default/index.xml layouts/_default/home.xml layouts/_default/list.xml</td>
+</tr>
+</tbody>
+</table>
+<p>我们重点介绍一下 Base template for home page，在 Home page 中，定义的是一段代码块，正如我们在第一节中所述，它需要先继承一个 HTML 文件的结构，然后替换其中使用 <code>{{ block &quot;name&quot; }}</code> 定义的部分，这里所继承的文件就是 Base template for home page。下面是一个例子</p>
+<h4 id="section-page">section page<a class="anchorjs-link" href="#section-page"></a></h4><p>section 是一组页面的集合，默认的，<code>content</code> 目录下每个一级目录都是一个 section，更深层次的目录，如果想成为 section，需要建立 _index.md 文件。一个例子如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>content
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>└── blog        &lt;-- Section, because first-level dir under content/
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    ├── funny-cats
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    │   ├── mypost.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    │   └── kittens         &lt;-- Section, because contains _index.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    │       └── _index.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    └── tech                &lt;-- Section, because contains _index.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>        └── _index.md
+</span></span></code></pre></div><p>section page 就是用来渲染 section 的模板，可以访问 section 中的所有内容和 front matter，其查找顺序如下</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>OutputFormat</th>
+<th>Suffix</th>
+<th>Template Lookup Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Section list for “posts” section</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/posts/posts.html layouts/posts/section.html layouts/posts/list.html layouts/section/posts.html layouts/section/section.html layouts/section/list.html layouts/_default/posts.html layouts/_default/section.html layouts/_default/list.html</td>
+</tr>
+</tbody>
+</table>
+<p>下面是一个 section page 的例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;!-- layouts/_default/section.html --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  &lt;main&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>      {{ .Content }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>          &lt;ul class=&#34;contents&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>          {{ range .Paginator.Pages }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>              &lt;li&gt;{{.Title}}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>                  &lt;div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>                    {{ partial &#34;summary.html&#34; . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>                  &lt;/div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>              &lt;/li&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>          {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>          &lt;/ul&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>      {{ partial &#34;pagination.html&#34; . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  &lt;/main&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>{{ end }}
+</span></span></code></pre></div><p><code>.Site.GetPage</code> 函数可以用来获取一组给定类型的页面，假设 content 目录结构如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>.
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>└── content
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    ├── blog
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    │   ├── _index.md # &#34;title: My Hugo Blog&#34; in the front matter
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    │   ├── post-1.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    │   ├── post-2.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    │   └── post-3.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    └── events #Note there is no _index.md file in &#34;events&#34;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        ├── event-1.md
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        └── event-2.md
+</span></span></code></pre></div><p>输出 blog section 的 title 可以使用如下语句</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;h1&gt;{{ with .Site.GetPage &#34;section&#34; &#34;blog&#34; }}{{ .Title }}{{ end }}&lt;/h1&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&lt;!-- 输出如下 --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;h1&gt;My Hugo Blog&lt;/h1&gt;
+</span></span></code></pre></div><p>如果是 event section，因为没有 _index.md 文件，会输出文件名</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;h1&gt;{{ with .Site.GetPage &#34;section&#34; &#34;events&#34; }}{{ .Title }}{{ end }}&lt;/h1&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&lt;!-- 输出如下 --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;h1&gt;Events&lt;/h1&gt;
+</span></span></code></pre></div><h4 id="taxonomy-page">taxonomy page<a class="anchorjs-link" href="#taxonomy-page"></a></h4><p>包括 taxonomy list pages 和 taxonomy terms pages，用于用户自定义的内容分组，比如分类和标签页面，展示了文章间的一种逻辑关系。下面解释几个术语</p>
+<ul>
+<li>Taxonomy：对内容进行分类的字段</li>
+<li>Term：分类的键</li>
+<li>Value：分类的值，就是内容</li>
+</ul>
+<p>举个例子，<code>演员</code> 是 Taxonomy，<code>克里斯·埃文斯</code> 是 Term，<code>《美国队长》</code> 是 Value，如果按 Taxonomy 组织页面，就是 taxonomy list pages，如果按 Term 组织页面，就是 taxonomy terms pages，如果是显示单个内容，那么使用 single page。页面的查找顺序如下</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>OutputFormat</th>
+<th>Suffix</th>
+<th>Template Lookup Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Taxonomy list in categories</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/categories/terms.html layouts/categories/taxonomy.html layouts/categories/list.html layouts/category/terms.html layouts/category/taxonomy.html layouts/category/list.html layouts/taxonomy/terms.html layouts/taxonomy/taxonomy.html layouts/taxonomy/list.html layouts/_default/terms.html layouts/_default/taxonomy.html layouts/_default/list.html</td>
+</tr>
+<tr>
+<td>Taxonomy term in categories</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/categories/term.html layouts/categories/category.html layouts/categories/taxonomy.html layouts/categories/list.html layouts/term/term.html layouts/term/category.html layouts/term/taxonomy.html layouts/term/list.html layouts/taxonomy/term.html layouts/taxonomy/category.html layouts/taxonomy/taxonomy.html layouts/taxonomy/list.html layouts/category/term.html layouts/category/category.html layouts/category/taxonomy.html layouts/category/list.html layouts/_default/term.html layouts/_default/category.html layouts/_default/taxonomy.html layouts/_default/list.html</td>
+</tr>
+</tbody>
+</table>
+<h4 id="single-page">single page<a class="anchorjs-link" href="#single-page"></a></h4><p>single page 是 Hugo 最主要的一个模板，用来渲染每一篇 Markdown 文章。页面的查找顺序如下</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>OutputFormat</th>
+<th>Suffix</th>
+<th>Template Lookup Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single page in “posts” section</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/posts/single.html layouts/_default/single.html</td>
+</tr>
+<tr>
+<td>Base template for single page in “posts” section</td>
+<td>HTML</td>
+<td>html</td>
+<td>layouts/posts/single-baseof.html layouts/posts/baseof.html layouts/_default/single-baseof.html layouts/_default/baseof.html</td>
+</tr>
+</tbody>
+</table>
+<p>一个 single page 的示例如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;!-- layouts/posts/single.html --&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;section id=&#34;main&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  &lt;h1 id=&#34;title&#34;&gt;{{ .Title }}&lt;/h1&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  &lt;div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        &lt;article id=&#34;content&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>           {{ .Content }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        &lt;/article&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  &lt;/div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>&lt;/section&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>&lt;aside id=&#34;meta&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    &lt;div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    &lt;section&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>      &lt;h4 id=&#34;date&#34;&gt; {{ .Date.Format &#34;Mon Jan 2, 2006&#34; }} &lt;/h4&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>      &lt;h5 id=&#34;wordcount&#34;&gt; {{ .WordCount }} Words &lt;/h5&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    &lt;/section&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    {{ with .Params.topics }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    &lt;ul id=&#34;topics&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>      {{ range . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        &lt;li&gt;&lt;a href=&#34;{{ &#34;topics&#34; | absURL}}{{ . | urlize }}&#34;&gt;{{ . }}&lt;/a&gt; &lt;/li&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>      {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    &lt;/ul&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    {{ with .Params.tags }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    &lt;ul id=&#34;tags&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>      {{ range . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>        &lt;li&gt; &lt;a href=&#34;{{ &#34;tags&#34; | absURL }}{{ . | urlize }}&#34;&gt;{{ . }}&lt;/a&gt; &lt;/li&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>      {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    &lt;/ul&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    &lt;/div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    &lt;div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>        {{ with .PrevInSection }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>          &lt;a class=&#34;previous&#34; href=&#34;{{.Permalink}}&#34;&gt; {{.Title}}&lt;/a&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>        {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>        {{ with .NextInSection }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>          &lt;a class=&#34;next&#34; href=&#34;{{.Permalink}}&#34;&gt; {{.Title}}&lt;/a&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>        {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>    &lt;/div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>&lt;/aside&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>{{ end }}
+</span></span></code></pre></div>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="hugo搭建个人博客-进阶设置">
+              Previous<br>
+              <span>hugo搭建个人博客-进阶设置</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" data-toggle="tooltip" data-placement="top" title="hugo博客添加字数统计和阅读需要xx分钟的功能">
+              Next<br>
+              <span>hugo博客添加字数统计和阅读需要xx分钟的功能</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://weibo.com/u/5337408690/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://space.bilibili.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-bilibili fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; 阿广的blog 2022  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

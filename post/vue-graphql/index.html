@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建 | 阿广的blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="一、创建vue3.2&#43;ts项目 1.创建项目命令 yarn create vite 2.选择typescript 3.cd项目根目录 4.yarn 安装依赖 5.yarn serve 运行项目 6.配置@符 在vit">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建"/>
+<meta name="twitter:description" content="一、创建vue3.2&#43;ts项目 1.创建项目命令 yarn create vite 2.选择typescript 3.cd项目根目录 4.yarn 安装依赖 5.yarn serve 运行项目 6.配置@符 在vit"/>
+
+  <meta property="og:title" content="vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建" />
+<meta property="og:description" content="一、创建vue3.2&#43;ts项目 1.创建项目命令 yarn create vite 2.选择typescript 3.cd项目根目录 4.yarn 安装依赖 5.yarn serve 运行项目 6.配置@符 在vit" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/vue-graphql/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-29T19:43:16+08:00" />
+<meta property="article:modified_time" content="2022-11-29T19:43:16+08:00" />
+<meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com">阿广的blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="首页">首页</a></li>
+          
+          <li><a href="/archive/" title="存档">存档</a></li>
+          
+          <li><a href="/recommend/" title="推荐">推荐</a></li>
+          
+          <li><a href="/about/" title="关于我">关于我</a></li>
+          
+          <li><a href="https://github.com/roninro/hugo-theme-puppet/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/markdown/" title="markdown">markdown</a>
+            
+            <a class="tag" href="/tags/css/" title="css">css</a>
+            
+            <a class="tag" href="/tags/html/" title="html">html</a>
+            
+          </div>
+          <h1>vue3&#43;ts&#43;pinia&#43;element&#43;tailwindcss&#43;graphql项目搭建</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Tue, Nov 29, 2022
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h1 id="一创建vue32ts项目">一、创建vue3.2+ts项目<a class="anchorjs-link" href="#%e4%b8%80%e5%88%9b%e5%bb%bavue32ts%e9%a1%b9%e7%9b%ae"></a></h1><blockquote>
+<p>1.创建项目命令    yarn create vite</p>
+</blockquote>
+<blockquote>
+<p>2.选择typescript</p>
+</blockquote>
+<blockquote>
+<p>3.cd项目根目录</p>
+</blockquote>
+<blockquote>
+<p>4.yarn 安装依赖</p>
+</blockquote>
+<blockquote>
+<p>5.yarn serve 运行项目</p>
+</blockquote>
+<blockquote>
+<p>6.配置@符 在vite.config.ts中 例:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> {resolve} from <span style="color:#f1fa8c">&#39;path&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> defineConfig({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>  plugins<span style="color:#ff79c6">:</span> [vue()],
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>  resolve<span style="color:#ff79c6">:</span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    alias<span style="color:#ff79c6">:</span>{<span style="color:#f1fa8c">&#39;@&#39;</span><span style="color:#ff79c6">:</span>resolve(__dirname,<span style="color:#f1fa8c">&#39;src&#39;</span>)}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>})
+</span></span></code></pre></div><blockquote>
+<p>7.如需其他配置可访问官网<a href="https://cn.vuejs.org/guide/introduction.html" target="_blank"> Vue.js</a></p>
+</blockquote>
+<h1 id="二安装vue-router路由">二、安装vue router路由<a class="anchorjs-link" href="#%e4%ba%8c%e5%ae%89%e8%a3%85vue-router%e8%b7%af%e7%94%b1"></a></h1><blockquote>
+<p>1.安装 yarn add vue-router</p>
+</blockquote>
+<blockquote>
+<p>2.在src下创建router文件夹</p>
+</blockquote>
+<blockquote>
+<p>3.新建index.ts文件</p>
+</blockquote>
+<blockquote>
+<p>4.配置路由 (vue2与vue3的404配置有所不同) 例：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">import</span> { createRouter, createWebHashHistory, RouteRecordRaw } from <span style="color:#f1fa8c">&#34;vue-router&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">const</span> routes<span style="color:#ff79c6">:</span> RouteRecordRaw[] <span style="color:#ff79c6">=</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        redirect<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/login&#39;</span> <span style="color:#6272a4">//一级页面重定向 需在APP.vue中占位 &lt;router-view&gt;&lt;/router-view&gt;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#6272a4"></span>    },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/login&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;login&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        component<span style="color:#ff79c6">:</span> () =&gt; <span style="color:#ff79c6">import</span>(<span style="color:#f1fa8c">&#39;@/views/Login.vue&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/todo&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;todo&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        component<span style="color:#ff79c6">:</span> () =&gt; <span style="color:#ff79c6">import</span>(<span style="color:#f1fa8c">&#39;@/views/Todo.vue&#39;</span>),
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        children<span style="color:#ff79c6">:</span> [ <span style="color:#6272a4">//二级页面
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>                path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/todo&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>                redirect<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/todo/home&#39;</span> <span style="color:#6272a4">//二级页面重定向   需在一级页面.vue中占位 &lt;router-view&gt;&lt;/router-view&gt;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#6272a4"></span>            },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>                path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;home&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>                component<span style="color:#ff79c6">:</span> () =&gt; <span style="color:#ff79c6">import</span>(<span style="color:#f1fa8c">&#39;@/views/home.vue&#39;</span>),
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>        ]
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>     {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>        path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;*&#39;</span>,  <span style="color:#6272a4">//vue2.0 404配置
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="color:#6272a4"></span>        name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;NotFound&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>        component<span style="color:#ff79c6">:</span> () =&gt; <span style="color:#ff79c6">import</span>(<span style="color:#f1fa8c">&#39;@/views/NotFound.vue&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>        path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/:error*&#39;</span>,  <span style="color:#6272a4">//vue3.2 404配置
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span><span style="color:#6272a4"></span>        name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;NotFound&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>        component<span style="color:#ff79c6">:</span> () =&gt; <span style="color:#ff79c6">import</span>(<span style="color:#f1fa8c">&#39;@/views/NotFound.vue&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> router <span style="color:#ff79c6">=</span> createRouter({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>    history<span style="color:#ff79c6">:</span> createWebHashHistory(),
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>    routes
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>})
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> router <span style="color:#6272a4">// 导出router
+</span></span></span></code></pre></div><blockquote>
+<p>5.在man.ts中引入注册 例：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> { createApp } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">import</span> router from <span style="color:#f1fa8c">&#39;./router/index&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">import</span> App from <span style="color:#f1fa8c">&#39;./App.vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#ff79c6">const</span> app<span style="color:#ff79c6">=</span> createApp(App)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>.use(router)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+</span></span></code></pre></div><blockquote>
+<p>6.如有其他需求配置可访问官网<a href="https://router.vuejs.org/zh/" target="_blank">Vue Router</a></p>
+</blockquote>
+<h1 id="三安装pinia小菠萝状态管理比vuex更轻便">三、安装pinia小菠萝(状态管理比vuex更轻便)<a class="anchorjs-link" href="#%e4%b8%89%e5%ae%89%e8%a3%85pinia%e5%b0%8f%e8%8f%a0%e8%90%9d%e7%8a%b6%e6%80%81%e7%ae%a1%e7%90%86%e6%af%94vuex%e6%9b%b4%e8%bd%bb%e4%be%bf"></a></h1><blockquote>
+<p>1.安装命令 yarn add pinia</p>
+</blockquote>
+<blockquote>
+<p>2.在src下新建store文件夹</p>
+</blockquote>
+<blockquote>
+<p>3.新建index.ts文件
+4.新建store.name文件 枚举</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">enum</span>  names{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    TEST<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;TEST&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>}
+</span></span></code></pre></div><blockquote>
+<p>4.store配置 例：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">import</span> { defineStore } from <span style="color:#f1fa8c">&#39;pinia&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#ff79c6">import</span> { names} from <span style="color:#f1fa8c">&#39;./store-name&#39;</span> <span style="color:#6272a4">//引入store-name文件
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#6272a4"></span> <span style="color:#ff79c6">export</span>  <span style="color:#ff79c6">const</span> store <span style="color:#ff79c6">=</span>defineStore(names.TEST,{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    state<span style="color:#ff79c6">:</span> () =&gt; ({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        name<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">&#39;4556&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    }),
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    getters<span style="color:#ff79c6">:</span>{},
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    actions<span style="color:#ff79c6">:</span>{}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span> })
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span> 
+</span></span></code></pre></div><blockquote>
+<p>5.在man.ts中引入注册 例:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> { createApp } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">import</span> {createPinia} from <span style="color:#f1fa8c">&#39;pinia&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">import</span> App from <span style="color:#f1fa8c">&#39;./App.vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#ff79c6">const</span> app<span style="color:#ff79c6">=</span> createApp(App)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>.use(createPinia())
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+</span></span></code></pre></div><blockquote>
+<p>6.在组件中使用,如果直接从pinia中解构数据，会丢失响应式， 使用storeToRefs可以保证解构出来的数据也是响应式的</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>    <span style="color:#ff79c6">&lt;</span>div<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>{{name}}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#ff79c6">&lt;</span>/div&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">&lt;</span>/template&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#ff79c6">&lt;</span>script setup lang<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ts&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#ff79c6">import</span> { storeToRefs } from <span style="color:#f1fa8c">&#39;pinia&#39;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#ff79c6">import</span> {store} from <span style="color:#f1fa8c">&#39;../store/index&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#ff79c6">const</span> stores<span style="color:#ff79c6">=</span>store()
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#ff79c6">const</span> {name,id}<span style="color:#ff79c6">=</span>storeToRefs(stores)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#ff79c6">&lt;</span>/script&gt;
+</span></span></code></pre></div><blockquote>
+<p>7.配置完成如需查看数据可以在Google浏览器中右键点击检查 找到安装的扩展程序 vue里面就有pinia标识，如果没有安装可去下载Vue.js devtools扩展程序<a href="https://devtools.vuejs.org/" target="_blank">Vue.js devtools</a>拖入扩展程序安装就可以正常使用了。如有其他需求可去官网,<a href="https://pinia.vuejs.org/" target="_blank">pinia</a> 或者前往<a href="https://blog.csdn.net/weixin_42776111/article/details/126008933?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166773134416782417050575%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=166773134416782417050575&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-126008933-null-null.142%5ev63%5econtrol,201%5ev3%5econtrol,213%5ev1%5et3_esquery_v3&amp;utm_term=pinia&amp;spm=1018.2226.3001.4187" target="_blank"> 博客</a> 或者<a href="https://www.bilibili.com/video/BV1dS4y1y7vd/?vd_source=182909204f1440b4c9db9a814f9ff557" target="_blank"> B站观看视频</a></p>
+</blockquote>
+<h1 id="四安装element-plus">四、安装element-plus<a class="anchorjs-link" href="#%e5%9b%9b%e5%ae%89%e8%a3%85element-plus"></a></h1><blockquote>
+<p>1.安装命令  yarn add element-plus</p>
+</blockquote>
+<blockquote>
+<p>2.在man.ts中引入注册 例:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> { createApp } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">import</span> ElementPlus from <span style="color:#f1fa8c">&#39;element-plus&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;element-plus/dist/index.css&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#ff79c6">import</span> App from <span style="color:#f1fa8c">&#39;./App.vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#ff79c6">const</span> app<span style="color:#ff79c6">=</span> createApp(App)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>.use(ElementPlus)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+</span></span></code></pre></div><blockquote>
+<p>3.如有其他需求可访问官网<a href="https://element-plus.org/zh-CN/guide/design.html" target="_blank"> Element-plus</a></p>
+</blockquote>
+<h1 id="五安装tailwindcss">五、安装tailwindcss<a class="anchorjs-link" href="#%e4%ba%94%e5%ae%89%e8%a3%85tailwindcss"></a></h1><blockquote>
+<p>1.安装命令   npm i -D vite-plugin-windicss windicss</p>
+</blockquote>
+<blockquote>
+<p>2.然后，在你的 Vite 配置中安装插件 vite.config.js：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> WindiCSS from <span style="color:#f1fa8c">&#39;vite-plugin-windicss&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>  plugins<span style="color:#ff79c6">:</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    WindiCSS(),
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  ],
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>}
+</span></span></code></pre></div><blockquote>
+<p>3.最后，在man.ts中导入<code>virtual:windi.css</code>你的 Vite 条目就可以正常使用啦</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;virtual:windi.css&#39;</span>
+</span></span></code></pre></div><blockquote>
+<p>4.如有其他配置需求可访问<a href="https://windicss.org/guide/" target="_blank">配置官网</a>。样式需求可访问<a href="https://tailwindcss.com/docs/width#fixed-widths" target="_blank"> 样式官网</a></p>
+</blockquote>
+<h1 id="六urql搭配graphql代码自动生成插件使用查询字段-发起请求">六、urql搭配graphql代码自动生成插件使用(查询字段-发起请求)<a class="anchorjs-link" href="#%e5%85%adurql%e6%90%ad%e9%85%8dgraphql%e4%bb%a3%e7%a0%81%e8%87%aa%e5%8a%a8%e7%94%9f%e6%88%90%e6%8f%92%e4%bb%b6%e4%bd%bf%e7%94%a8%e6%9f%a5%e8%af%a2%e5%ad%97%e6%ae%b5-%e5%8f%91%e8%b5%b7%e8%af%b7%e6%b1%82"></a></h1><p>这些绑定是在考虑<a href="https://github.com/vuejs/vue-next/releases/tag/v3.0.0" target="_blank">Vue 3</a><code>@urql/vue</code>的情况下编写的，并使用 Vue 更新的<a href="https://v3.vuejs.org/guide/composition-api-introduction.html" target="_blank">Composition API</a>。这使 绑定功能更容易集成到您现有的功能中。<a href="https://github.com/vuejs/vue-next/releases/tag/v3.0.0" target="_blank"></a><a href="https://v3.vuejs.org/guide/composition-api-introduction.html" target="_blank"></a><code>@urql/vue``setup()</code></p>
+<h3 id="11安装urqlvue">1.1安装@urql/vue<a class="anchorjs-link" href="#11%e5%ae%89%e8%a3%85urqlvue"></a></h3><p>安装<code>@urql/vue</code>速度很快，无需立即安装其他软件包。</p>
+<p>前往官网 <a href="https://formidable.com/open-source/urql/docs/basics/vue/" target="_blank">urql</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>yarn add @urql/vue graphql
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span># or
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>npm install --save @urql/vue graphql
+</span></span></code></pre></div><p>大多数与 GraphQL 相关的库也需要将<code>graphql</code>包安装为对等依赖项，以便它们能够适应您的特定版本控制要求。这就是为什么我们需要同时<code>graphql</code>安装<code>@urql/vue</code>.</p>
+<p><code>@urql/vue</code>和包都<code>graphql</code>遵循<a href="https://semver.org/" target="_blank">语义版本控制</a>，所有<code>@urql/vue</code>包都将定义一系列兼容的<code>graphql</code>. 但是，请注意将来的重大更改，在这种情况下，您的包管理器可能会警告您 <code>graphql</code>超出定义的对等依赖范围。</p>
+<h3 id="12设置client可以直接看提供client">1.2.设置<code>Client</code>(可以直接看提供client)<a class="anchorjs-link" href="#12%e8%ae%be%e7%bd%aeclient%e5%8f%af%e4%bb%a5%e7%9b%b4%e6%8e%a5%e7%9c%8b%e6%8f%90%e4%be%9bclient"></a></h3><p>该<code>@urql/vue</code>包导出了一个方法<code>createClient</code>，我们可以使用它来创建 GraphQL 客户端。这个中央<code>Client</code>管理我们所有的 GraphQL 请求和结果。在src/plugins/@urql.ts</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>import { createClient } from &#39;@urql/vue&#39;;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>const client = createClient({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>  url: &#39;http://localhost:3000/graphql&#39;,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>});
+</span></span></code></pre></div><p><code>url</code>当我们创建一个<code>Client</code>开始时，我们至少需要传递一个 API 。</p>
+<p>另一个常见的选项是<code>fetchOptions</code>. 此选项允许我们自定义在将<code>fetch</code>请求发送到给定 API 时将传递给的选项<code>url</code>。我们可以传入一个选项对象或一个返回选项对象的函数。</p>
+<p>在下面的示例中，我们将为发送到 GraphQL API的每个<code>fetch</code>请求添加一个令牌。<code>Client</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>const client = createClient({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  url: &#39;http://localhost:3000/graphql&#39;,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  fetchOptions: () =&gt; {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    const token = getToken();
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    return {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>      headers: { authorization: token ? `Bearer ${token}` : &#39;&#39; },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    };
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>});
+</span></span></code></pre></div><h3 id="13提供client-第二种使用偏多">1.3.提供<code>Client</code> （第二种使用偏多）<a class="anchorjs-link" href="#13%e6%8f%90%e4%be%9bclient-%e7%ac%ac%e4%ba%8c%e7%a7%8d%e4%bd%bf%e7%94%a8%e5%81%8f%e5%a4%9a"></a></h3><p>要使用<code>Client</code>Vue，我们必须提供从父组件到子组件的服务。这将<code>Client</code>与我们的应用程序的其余部分共享一个。有<code>@urql/vue</code>两种不同的方法可以实现这一点。</p>
+<p>第一种方法是使用<code>@urql/vue</code>&rsquo;<code>provideClient</code>函数。这必须在您的任何父组件中调用，并<code>Client</code>直接接受或仅接受您传递给的选项 <code>createClient</code>。直接写在APP.Vue中即可使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;script&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  import { createClient, provideClient } from &#39;@urql/vue&#39;;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  const client = createClient({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    url: &#39;http://localhost:3000/graphql&#39;,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  });
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  provideClient(client);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>&lt;/script&gt;
+</span></span></code></pre></div><p>第二种方法，我们可以通过导入其默认导出并将其用作插件来使用导出的<code>install</code>函数并将其<a href="https://v3.vuejs.org/guide/plugins.html#using-a-plugin" target="_blank">视为插件</a>。<code>@urql/vue</code><a href="https://v3.vuejs.org/guide/plugins.html#using-a-plugin" target="_blank"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>import { createApp } from &#39;vue&#39;;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>import Root from &#39;./App.vue&#39;;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>import urql from &#39;@urql/vue&#39;;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>const app = createApp(Root);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>app.use(urql, {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  url: &#39;http://localhost:3000/graphql&#39;,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>});
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>app.mount(&#39;#app&#39;);
+</span></span></code></pre></div><blockquote>
+<p>注意： 这一段代码写在man.ts中</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">import</span> urql from <span style="color:#f1fa8c">&#39;@urql/vue&#39;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>app.use(urql, {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  url<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;http://localhost:3000/graphql&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>});
+</span></span></code></pre></div><p>该插件还接受<code>createClient</code>&rsquo;s 选项或 a<code>Client</code>作为其输入。</p>
+<h2 id="21安装graphql插件">2.1.安装graphql插件<a class="anchorjs-link" href="#21%e5%ae%89%e8%a3%85graphql%e6%8f%92%e4%bb%b6"></a></h2><p><code>graphql可以直接设置需要的请求字段，再一键生成后端返回的数据类型，以及经过封装后的函数生成 garphql.ts文件，在页面直接调用里面的函数传入需要的参数直接发起请求 </code></p>
+<p><a href="https://graphql.org/code/#javascript" target="_blank">点击前往graphql官网</a></p>
+<p><a href="https://www.the-guild.dev/graphql/codegen/plugins/typescript/typescript" target="_blank">插件安装官网</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">**</span>dependencies 生产依赖<span style="color:#ff79c6">**</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span> yarn add graphql
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span> yarn add graphql<span style="color:#ff79c6">-</span>tag
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#ff79c6">**</span>devDependencies开发依赖<span style="color:#ff79c6">**</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span> yarn add <span style="color:#ff79c6">-</span>D @graphql<span style="color:#ff79c6">-</span>codegen<span style="color:#ff79c6">/</span>cli
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span> yarn add <span style="color:#ff79c6">-</span>D @graphql<span style="color:#ff79c6">-</span>codegen<span style="color:#ff79c6">/</span>introspection
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span> yarn add <span style="color:#ff79c6">-</span>D @graphql<span style="color:#ff79c6">-</span>codegen<span style="color:#ff79c6">/</span>typescript
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span> yarn add <span style="color:#ff79c6">-</span>D @graphql<span style="color:#ff79c6">-</span>codegen<span style="color:#ff79c6">/</span>typescript<span style="color:#ff79c6">-</span>operations
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span> yarn add <span style="color:#ff79c6">-</span>D @graphql<span style="color:#ff79c6">-</span>codegen<span style="color:#ff79c6">/</span>typescript<span style="color:#ff79c6">-</span>urql
+</span></span></code></pre></div><h2 id="22配置codegenyml文件">2.2.配置codegen.yml文件<a class="anchorjs-link" href="#22%e9%85%8d%e7%bd%aecodegenyml%e6%96%87%e4%bb%b6"></a></h2><blockquote>
+<p>注意：格式是写死的多一个空格都不行，该对齐的地方必须对齐</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>overwrite<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>  运行删除上一次生成的文件
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>schema<span style="color:#ff79c6">:</span> 服务器地址
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  <span style="color:#ff79c6">-</span> http<span style="color:#ff79c6">:</span><span style="color:#6272a4">//localhost:4000
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#6272a4"></span>documents<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;src/graphql/**/*.graphql&#39;</span> 解析的某个后缀名为graphql的文件
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>generates<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  src<span style="color:#ff79c6">/</span>generated<span style="color:#ff79c6">/</span>graphql.ts<span style="color:#ff79c6">:</span> 自动封装后生成的文件路径
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    plugins<span style="color:#ff79c6">:</span> 用到的插件
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>      <span style="color:#ff79c6">-</span> typescript
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      <span style="color:#ff79c6">-</span> typescript<span style="color:#ff79c6">-</span>operations
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      <span style="color:#ff79c6">-</span> typescript<span style="color:#ff79c6">-</span>urql
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    config<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      urqlImportFrom<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;@urql/vue&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>      skipTypename<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span> 是否跳过某个模块
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  src<span style="color:#ff79c6">/</span>generated<span style="color:#ff79c6">/</span>graphql.schema.json<span style="color:#ff79c6">:</span>自动生成的文件路径
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    plugins<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>      <span style="color:#ff79c6">-</span> introspection  
+</span></span></code></pre></div><h2 id="23在srcgraphqlgraphql文件中填写需要返回的需求字段">2.3.在src/graphql/.graphql文件中填写需要返回的需求字段<a class="anchorjs-link" href="#23%e5%9c%a8srcgraphqlgraphql%e6%96%87%e4%bb%b6%e4%b8%ad%e5%a1%ab%e5%86%99%e9%9c%80%e8%a6%81%e8%bf%94%e5%9b%9e%e7%9a%84%e9%9c%80%e6%b1%82%e5%ad%97%e6%ae%b5"></a></h2><blockquote>
+<p>query表示GET请求，Mutation表示POST请求</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>例：
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>query getUser($userId<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span><span style="color:#ff79c6">!</span>){
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  getUser(userId<span style="color:#ff79c6">:</span> $userId) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    userId
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    firstName
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    lastName
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    accounts {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>      accountToken
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      accountType
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      accountNumber
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>      accountBalance
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      nickName
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span></code></pre></div><h2 id="24运行命令开始查询">2.4.运行命令,开始查询<a class="anchorjs-link" href="#24%e8%bf%90%e8%a1%8c%e5%91%bd%e4%bb%a4%e5%bc%80%e5%a7%8b%e6%9f%a5%e8%af%a2"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>yarn graphql<span style="color:#ff79c6">-</span>codegen
+</span></span></code></pre></div><h2 id="25生成后的文件">2.5.生成后的文件<a class="anchorjs-link" href="#25%e7%94%9f%e6%88%90%e5%90%8e%e7%9a%84%e6%96%87%e4%bb%b6"></a></h2><blockquote>
+<p>graphql.schema.json</p>
+</blockquote>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f52bd76b0e2424c970b7bfcf675600b~tplv-k3u1fbpfcp-watermark.image?" data-action="zoom" alt="1s.png"  class="lazyload">
+  </a>
+  
+</figure></p>
+<blockquote>
+<p>graphql.ts</p>
+<p>自动生成的类型
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10fdb068482e427d9f4cae6b10e27010~tplv-k3u1fbpfcp-watermark.image?" data-action="zoom" alt="2s.png"  class="lazyload">
+  </a>
+  
+</figure>
+自动封装生成的函数
+<figure>
+  <a class="paragraph-image">
+    <img data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f91f0a83b11408bb2ae9ddbc30d4f1b~tplv-k3u1fbpfcp-watermark.image?" data-action="zoom" alt="3s.png"  class="lazyload">
+  </a>
+  
+</figure></p>
+</blockquote>
+<h2 id="26graphql在页面中的使用直接引入调用">2.6.graphql在页面中的使用（直接引入调用）<a class="anchorjs-link" href="#26graphql%e5%9c%a8%e9%a1%b5%e9%9d%a2%e4%b8%ad%e7%9a%84%e4%bd%bf%e7%94%a8%e7%9b%b4%e6%8e%a5%e5%bc%95%e5%85%a5%e8%b0%83%e7%94%a8"></a></h2><blockquote>
+<p>注意：(GET)query请求必须写在setup中调用，不能在其他函数中调用，也不能在事件中调用。
+(post)Mutation请求就可以
+参数必须写在variables对象中,用它来为我们的查询提供变量</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">const</span> portal<span style="color:#ff79c6">=</span>useGetUserQuery({
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    variables<span style="color:#ff79c6">:</span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    userId<span style="color:#ff79c6">:</span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>      userId
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>     }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>  })
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  console.log(portal);
+</span></span></code></pre></div>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/post/hugo/" data-toggle="tooltip" data-placement="top" title="hugo静态资源网站完整创建流程">
+              Next<br>
+              <span>hugo静态资源网站完整创建流程</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://weibo.com/u/5337408690/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://space.bilibili.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-bilibili fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; 阿广的blog 2022  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

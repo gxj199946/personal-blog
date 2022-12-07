@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>hugo搭建个人博客-进阶设置 | 阿广的blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="hugo搭建个人博客-进阶设置1. 添加菜单栏页面我们可以自己建立新的菜单页面1 ，比如我新建life页面用作展示阅读的书籍、电影和游览的景点。">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo搭建个人博客-进阶设置"/>
+<meta name="twitter:description" content="hugo搭建个人博客-进阶设置1. 添加菜单栏页面我们可以自己建立新的菜单页面1 ，比如我新建life页面用作展示阅读的书籍、电影和游览的景点。"/>
+
+  <meta property="og:title" content="hugo搭建个人博客-进阶设置" />
+<meta property="og:description" content="hugo搭建个人博客-进阶设置1. 添加菜单栏页面我们可以自己建立新的菜单页面1 ，比如我新建life页面用作展示阅读的书籍、电影和游览的景点。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-30T16:11:26+08:00" />
+<meta property="article:modified_time" content="2022-11-30T16:11:26+08:00" />
+<meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/recommend/common1/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E9%80%9A%E8%BF%87-shortcodes-%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E9%9C%80%E8%A6%81xx%E5%88%86%E9%92%9F%E7%9A%84%E5%8A%9F%E8%83%BD-/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/" /><meta property="og:see_also" content="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva3.sinaimg.cn/large/005PddOWly8h8hklbcc6yj30b40b40t6.jpg">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog-1313417943.cos-website.ap-chongqing.myqcloud.com">阿广的blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="首页">首页</a></li>
+          
+          <li><a href="/archive/" title="存档">存档</a></li>
+          
+          <li><a href="/recommend/" title="推荐">推荐</a></li>
+          
+          <li><a href="/about/" title="关于我">关于我</a></li>
+          
+          <li><a href="https://github.com/roninro/hugo-theme-puppet/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/markdown/" title="markdown">markdown</a>
+            
+            <a class="tag" href="/tags/css/" title="css">css</a>
+            
+            <a class="tag" href="/tags/html/" title="html">html</a>
+            
+          </div>
+          <h1>hugo搭建个人博客-进阶设置</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Wed, Nov 30, 2022
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h1 id="hugo搭建个人博客-进阶设置">hugo搭建个人博客-进阶设置<a class="anchorjs-link" href="#hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2-%e8%bf%9b%e9%98%b6%e8%ae%be%e7%bd%ae"></a></h1><h2 id="1-添加菜单栏页面">1. 添加菜单栏页面<a class="anchorjs-link" href="#1-%e6%b7%bb%e5%8a%a0%e8%8f%9c%e5%8d%95%e6%a0%8f%e9%a1%b5%e9%9d%a2"></a></h2><p>我们可以自己建立新的菜单页面<a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fn:1" target="_blank">1</a> ，比如我新建<code>life</code>页面用作展示阅读的书籍、电影和游览的景点。建立页面文件的命令如下：</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>$ hugo new life.md </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>然后编辑项目根目录下的站点配置文件<code>config.toml</code>，添加页面说明。其中<code>weight</code>字段的值决定了该页面在菜单栏的顺序<a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fn:2" target="_blank">2</a>，其值越大，顺序越靠后。按照习惯，<code>About</code>页面放在最后，所以其<code>weight</code>字段值设置为5。</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 8 9 10</code></th>
+<th><code># 添加Tags和Life菜单，并修改About菜单的weight字段值为5（为了调整菜单栏显示顺序）  [[menu.main]]    name = &quot;Tags&quot;    url = &quot;/tags/&quot;    weight = 3   [[menu.main]]    name = &quot;Life&quot;    url = &quot;/life/&quot;    weight = 4 </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>新建的life.md文件位于content目录下，编辑文件内容从而决定实际的页面显示内容。</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 </code></th>
+<th><code>$ ls content -l total 2 -rw-r--r-- 1 lylw1 197609  658  9月 16 11:34 about.md -rw-r--r-- 1 lylw1 197609 3343  9月 25 11:34 life.md </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-字数统计">2. 字数统计<a class="anchorjs-link" href="#2-%e5%ad%97%e6%95%b0%e7%bb%9f%e8%ae%a1"></a></h2><p>中文(<a href="https://github.com/nodejh/hugo-theme-cactus-plus/issues/18" target="_blank">详情</a>)统计的支持可以通过在<code>config.toml</code>中添加如下语句启用</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>hasCJKLanguage = true </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-开启评论">2. 开启评论<a class="anchorjs-link" href="#2-%e5%bc%80%e5%90%af%e8%af%84%e8%ae%ba"></a></h2><p>使用gitalk，首先在GitHub 上创建一个 <a href="https://github.com/settings/applications/new" target="_blank">Github Application</a>，记录 <code>Client ID</code> 和 <code>Client Secret</code></p>
+<p>然后编辑<code>config.toml</code>以下字段</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 </code></th>
+<th><code>[params.gitalk] owner = &quot;shuzang&quot;       # 你的GitHub ID        repo = &quot;blog&quot;        # 博客网址     clientId = &quot;&quot;    # 刚刚记录的client ID       clientSecret = &quot;&quot; # 刚刚记录的client secret labels = &quot;gitalk&quot; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>提交到仓库后就能看到博文下开启了评论区</p>
+<p>现在更换使用Valine评论系统，步骤暂未总结</p>
+<h2 id="3-打赏">3. 打赏<a class="anchorjs-link" href="#3-%e6%89%93%e8%b5%8f"></a></h2><p>有些主题支持加入打赏图片，但KeepIt不支持，不过这里还是记录一下。利用<a href="http://www.9thws.com/#" target="_blank">第九工厂</a>的免费模板制作好看的打赏二维码。</p>
+<h2 id="4-英文url">4. 英文URL<a class="anchorjs-link" href="#4-%e8%8b%b1%e6%96%87url"></a></h2><p>文章分享和访问时，中文URL是最麻烦的一件事情，为了解决这个问题，我阅读了一遍hugo文档中的<a href="https://gohugo.io/content-management/urls/" target="_blank">URL Management</a>，最终决定使用如下办法。</p>
+<p>首先修改站点配置文件<code>config.toml</code>中的<code>Permalinks</code>字段如下</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 </code></th>
+<th><code>[Permalinks] posts = &quot;/:year/:month/:slug/&quot; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>初始状态该字段值为<code>posts = &quot;/:year/:month/:filename/&quot;</code>，使用文件名作为URL，但是文件名作为管理和查找的手段，使用英文较为不便，而文章标题为了便于阅读，也不方便命名为英文，只能使用额外的<code>slug</code>字段。</p>
+<p>之后在每篇文章头部的配置信息中添加<code>slug</code>字段即可，一个例子如下</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 </code></th>
+<th><code>title: Golang语法基础100问 date: 2019-12-23 slug: &quot;100 question of Golang basic syntax&quot; tags: [Golang] categories: [爱编程爱技术的孩子] </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>这篇文章最后的URL将会是<code>http://shuzang.github.io/2019/12/100-question-of-golang-basic-syntax/</code></p>
+<h2 id="5-图片插入">5. 图片插入<a class="anchorjs-link" href="#5-%e5%9b%be%e7%89%87%e6%8f%92%e5%85%a5"></a></h2><p>博客维护所面临的一个重要问题就是图床，一开始使用Github作为图床，后来迁移到Github issue，再后来因为图片经常加载不出来，迁移到了路过图床，不过用别的图床总归不放心，图片不多的情况下，最终决定将所有图片放到本地，操作步骤如下</p>
+<p>首先，对于Hugo来说，所有的静态文件都应该位于根目录的static目录下，比如，我在该目录下存放了 <code>example.img</code> 图片，那么在文章中就可以用以下方式引用图片</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>![](/example.img) </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>这是因为静态文件的查找规则就是以 static 为根目录，所以图片从这里寻找。为了保证清晰的文件结构，便于之后寻找图片，我们采用如下规则存放图片：一篇文章的所有图片放在以文章名命名的一个文件夹中，该文件夹放在<code>static/images</code>目录下。如本文文件名为「hugo搭建个人博客3-进阶设置」，则本文所有图片放在 <code>static/images/hugo搭建个人博客3-进阶设置</code>目录下，在文章中插入图片时，使用的路径为</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>![](/images/example.img) </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中，example.img为图片名。至此为止，网页中可以正常显示插入的图片，但是Typora中无法显示图片，因此我们需要设置Typora的图片根目录，方法是在文章开头的YAML头中添加如下字段</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code> </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>路径根据自己的文章位置而定，也可以在工具栏选择「格式—&gt;图像—&gt;设置图片根目录」，产生的效果是相同的，也是在文章头部添加该字段。</p>
+<p>最后，我们在Typora的偏好设置中，设置插入图片时自动复制到相应的目录下即可，这样所有的图片都可以和博客代码存放在一起。、</p>
+<p>这种方法唯一的缺点是所有图片和博客项目源码的总大小不能超过1G，因为一个Github项目空间最大1G</p>
+<h2 id="6-自定义样式">6. 自定义样式<a class="anchorjs-link" href="#6-%e8%87%aa%e5%ae%9a%e4%b9%89%e6%a0%b7%e5%bc%8f"></a></h2><p>通过定义自定义 <code>.scss</code> 样式文件, <strong>LoveIt</strong> 主题支持可配置的样式.</p>
+<p>包含自定义 <code>.scss</code> 样式文件的目录相对于 <strong>你的项目根目录</strong> 的路径为 <code>config/css</code>.</p>
+<p>在 <code>config/css/_override.scss</code> 中, 你可以覆盖 <code>themes/LoveIt/assets/css/_variables.scss</code> 中的变量以自定义样式.</p>
+<p>这是一个例子:</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 </code></th>
+<th><code>@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700&amp;display=swap&amp;subset=latin-ext'); $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospace; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>在 <code>config/css/_custom.scss</code> 中, 你可以添加一些 CSS 样式代码以自定义样式.</p>
+<h2 id="8-添加独立域名">8. 添加独立域名<a class="anchorjs-link" href="#8-%e6%b7%bb%e5%8a%a0%e7%8b%ac%e7%ab%8b%e5%9f%9f%e5%90%8d"></a></h2><p>给部署在 GitHub Pages 上的博客添加独立域名，是早就想做的事，以前是因为没什么需求，.me域名比较贵，国内购买域名备案又比较麻烦，所以一直没做。这次选择了.top域名，买了三年才67，可以了，三年以后开始工作再考虑换.me域名，毕竟这个冷门的字段应该没人要。而且发现部署在github pages不需要备案，因为服务器不在国内。</p>
+<h3 id="31-选购域名">3.1 选购域名<a class="anchorjs-link" href="#31-%e9%80%89%e8%b4%ad%e5%9f%9f%e5%90%8d"></a></h3><p>可能很多人已经买好了域名了，你可以[跳过这部分](#GitHub 上的设置)</p>
+<p>要想给博客绑定独立域名，首先你得拥有一个域名。得去域名注册网站购买域名，国内的域名商推荐<a href="https://wanwang.aliyun.com/" target="_blank">万网</a>，国外的推荐 <a href="https://www.godaddy.com/" target="_blank">GoDaddy</a>，因为他们分别是中国最大和世界最大的域名注册服务商。不了解的领域当然挑知名有信誉的总是没错的。</p>
+<p>要是买<code>.me</code>域名就真的只能在GoDaddy买了，首年24，续费不知道，但是还需要购买隐私保护，这样就变成了每年60，要是工作后还负担的起，现在买这个还是算了。<code>.io</code>首年就320，更负担不起了。国内的话，<code>.com</code>，<code>.net</code>这些就不想了，基本都已经被注册了，于是选择了<code>.top</code>，一口气买了三年，一共67，而且在国内购买的好处是本身对WHOIS中的个人信息提供隐私保护。阿里云之前对域名提供的隐私保护服务已经停用了，主要是因为</p>
+<blockquote>
+<p>为落实<a href="https://www.icann.org/news/announcement-2018-05-22-zh" target="_blank">ICANN临时规范</a>要求，自2018年5月25日起阿里云WHOIS查询公开信息中将不再显示域名注册人、管理联系人和技术联系人的个人数据，包括姓名、邮箱、电话、街道地址等。</p>
+</blockquote>
+<p>这样域名的注册信息已得到默认保护，不再需要额外开通隐私保护。</p>
+<p>具体选购过程大致是：<strong>搜索域名 -&gt; 将喜欢的域名加入购物车 -&gt;选择域名注册模板(没有的话要创建)-&gt; 付款 -&gt; 购买成功</strong>，实际使用还需要进行邮箱验证和实名认证，否则域名无法启用。</p>
+<p>最为繁琐的域名备案过程可以跳过，因为博客挂载在github pages，而只有服务器在国内的网站才需要备案。</p>
+<h3 id="32-dns解析">3.2 DNS解析<a class="anchorjs-link" href="#32-dns%e8%a7%a3%e6%9e%90"></a></h3><p>使用CNAME别名映射域名，比设置A记录更方便，最重要的是A记录无法开启https。参数设置如下图所示。</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://picped-1301226557.cos.ap-beijing.myqcloud.com/BC_20190712_1Heu1H.png" data-action="zoom" alt="https://picped-1301226557.cos.ap-beijing.myqcloud.com/BC_20190712_1Heu1H.png"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>访问网址时可能会加www前缀，因此可以设置一个二级域名解析，方法相同。</p>
+<h3 id="33-github-上的设置">3.3 GitHub 上的设置<a class="anchorjs-link" href="#33-github-%e4%b8%8a%e7%9a%84%e8%ae%be%e7%bd%ae"></a></h3><p>到 Github <code>shuzang.github.io</code>仓库设置里，在 <code>Custom domain</code> 这里填写<code>shuzang.top</code>域名并保存。</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://picped-1301226557.cos.ap-beijing.myqcloud.com/BC_20190712_1He3HP.png" data-action="zoom" alt="https://picped-1301226557.cos.ap-beijing.myqcloud.com/BC_20190712_1He3HP.png"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p><code>Custom domain</code> 下方 <code>Enforce HTTPS</code> 这个选项一并勾选，Github 跟 Let’s Encrypt 有合作，如果勾选了这个选项，Let’s Encrypt 就会给你的博客签发一张 SSL 证书，免费的。</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://picped-1301226557.cos.ap-beijing.myqcloud.com/BC_20190712_1HeJN8.png" data-action="zoom" alt="https://picped-1301226557.cos.ap-beijing.myqcloud.com/BC_20190712_1HeJN8.png"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>发现上面这种方法每次提交后都需要重新填写<code>custom domin</code>字段，因此采用另一种方式，创建一个名为 <code>CNAME</code> 的文件放在<code>content</code>目录，其中的内容<strong>只</strong>写上你的域名，像这样</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>shuzang.top </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>使用hugo命令生成文件会将CNAME文件直接复制到public目录，并通过持续集成将其推送到master分支根目录。</p>
+<p>等几分钟 (刷新 DNS 缓存)，然后在浏览器中输入<code>shuzang.top</code>，回车，不出意外看到了自己的博客。</p>
+<h3 id="34-其他玩法">3.4 其他玩法<a class="anchorjs-link" href="#34-%e5%85%b6%e4%bb%96%e7%8e%a9%e6%b3%95"></a></h3><p>除了将域名绑定给博客外博客，还可以用域名干一些别的事。</p>
+<p>比如，<strong>使用 A 记录将 <code>mail.shuzang.me</code> 这个二级域名指向 <code>207.46.149.80</code> 就可以 “搭建” 一个 <a href="http://mail.shuzang.top/" target="_blank">临时邮箱</a>服务</strong> (感谢 <a href="https://moeclub.org/" target="_blank">萌咖 | MoeClub.org</a> 提供的服务器)</p>
+<p>如果你还有一台拥有<strong>公网 IP</strong> 的服务器，可玩性就更高了！</p>
+<p>如果有能力，你甚至可以拥有自己的搜索引擎</p>
+<h2 id="9-代码高亮">9. 代码高亮<a class="anchorjs-link" href="#9-%e4%bb%a3%e7%a0%81%e9%ab%98%e4%ba%ae"></a></h2><p>KeepIt主题本身对代码高亮的渲染是在本地执行的，使用的是<a href="https://github.com/google/code-prettify" target="_blank">google code prettify</a>，高亮风格较少而且作者没提供配置选项，通过使用<code>Highlight.js</code>库可以自定义代码高亮格式<a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fn:3" target="_blank">3</a>。</p>
+<p>为了最大程度的保持原主题文件的代码，我们首先将主题文件夹下<code>layouts/partials/js.html</code>文件复制到Hugo项目文件夹，令其位于同样的目录，然后删除文件中的以下语句</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>{{ $prettify := resources.Get &quot;/js/prettify.min.js&quot; }} </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>之后删除<code>js.html</code>文件中所有<code>$prettify</code>字段。</p>
+<p>复制主题文件夹<code>layouts/partials/head.html</code>文件到项目文件夹，并添加如下内容</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 </code></th>
+<th><code>&lt;link href=&quot;https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-light.min.css&quot; rel=&quot;stylesheet&quot;&gt; &lt;script src=&quot;https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js&quot;&gt;&lt;/script&gt; &lt;script src=&quot;https://cdn.bootcss.com/highlight.js/9.15.10/languages/go.min.js&quot;&gt;&lt;/script&gt; &lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>以上代码使用了<a href="https://www.bootcdn.cn/highlight.js/" target="_blank">bootCDN</a>对<code>Highlight.js</code>进行加速，并额外添加了对go语言代码高亮的支持。</p>
+<p>最后需要删除主题文件夹中的某些内容，包括</p>
+<ol>
+<li>
+<p><code>assets/js/prettify.min.js</code>文件</p>
+</li>
+<li>
+<p><code>assets/css/main.scss</code>的以下内容</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>@import &quot;_common/_prettyprint/default.scss&quot; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p>此时代码就可以以浅色的atom格式高亮了，不过可惜的是不显示代码行数，就只能等以后再说了。</p>
+<p>还要注意的是以后每次更新主题都要删除主题文件夹中以上两个内容。</p>
+<h2 id="10-视频">10. 视频<a class="anchorjs-link" href="#10-%e8%a7%86%e9%a2%91"></a></h2><p>可以使用html代码直接在文章中嵌入视频，因为各视频网站一般会在分享链接中提供iframe格式的代码，以B站为例，复制如下代码放在文章中相应的位置即可</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=75064361&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;height: 600px;&quot; &gt; &lt;/iframe&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注意添加<code>style</code>字段调整高度与宽度，否则可能显示效果不会很好，上面的代码效果如下</p>
+<iframe src="https://player.bilibili.com/player.html?aid=75064361" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="" style="width: 800px; height: 600px;"></iframe>
+<p>也可以使用短代码来完成，Hugo提供了<a href="https://gohugo.io/templates/shortcode-templates/" target="_blank">Shortcodes</a>功能可以帮助我们定制一些语法，仍以B站视频为例，在项目根目录建立<code>/layouts/shortcodes</code>文件夹，在该文件夹内新建<code>bilibili.html</code>文件，文件内容编辑如下</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 </code></th>
+<th><code>&lt;iframe src=&quot;//player.bilibili.com/player.html?aid={{ .Get 0 }}&quot;         scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot;         allowfullscreen=&quot;true&quot;         style=&quot;width: 100%;height: 600px;&quot; &gt;  &lt;/iframe&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>以后在文章中添加视频就可以使用如下格式的代码，其中的参数为视频代码，可以在视频URL中找到</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>video 75064361 </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>使用iframe即使在本地的Typora编辑器也可以查看效果，但是代码较多，而是用shortcodes可以精简代码，但只有开启预览或将文章推送到云端才能看到，各有利弊，自己权衡。</p>
+<p>最后还需要提一点，引入视频会导致网页加载速度大幅下滑，如非必要，最好不要引入。</p>
+<h2 id="11-音频">11. 音频<a class="anchorjs-link" href="#11-%e9%9f%b3%e9%a2%91"></a></h2><p>在文章中嵌入音频也是一个需求，尤其是歌曲，使用频率比较高，我们在这里注意使用使用 <a href="https://github.com/MoePlayer/APlayer" target="_blank">APlayer</a> 和 <a href="https://github.com/metowolf/MetingJS" target="_blank">MetingJS</a> 完成这一功能。</p>
+<p>在<code>layouts</code>目录下的head.html文件中添加如下内容</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 </code></th>
+<th><code>&lt;!-- require APlayer --&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&quot;&gt; &lt;script src=&quot;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&quot;&gt;&lt;/script&gt; &lt;!-- require MetingJS --&gt; &lt;script src=&quot;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&quot;&gt;&lt;/script&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>然后在文章中可以通过如下语句添加音频</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>&lt;meting-js auto=&quot;https://y.qq.com/n/yqq/song/000xRG4E4diqXD.html&quot;&gt;&lt;/meting-js&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>播放链接可以通过浏览器从各音乐平台获取，当然，和视频一样使用iframe格式的代码嵌入也是可以的</p>
+<p>最后，也可以使用shortcodes缩短音频代码，在<code>layouts/shortcodes</code>目录下新建audio.html文件，编辑内容如下</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>&lt;meting-js auto={{ .Get 0 }}&gt;&lt;/meting-js&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>在文章中就可以像下面这样使用，参数为音频网址</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>audio  &quot;https://y.qq.com/n/yqq/song/000xRG4E4diqXD.html&quot; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-数学公式">12. 数学公式<a class="anchorjs-link" href="#12-%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f"></a></h2><p>文章中使用数学公式也是一种需求，但是Hugo本身不提供对这种语法的支持，KeepIt主题也没有提供这个功能，因此需要自己添加<a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fn:1" target="_blank">1</a>。</p>
+<p>主要方法是在已经生成好的HTML页面中使用JavaScript来渲染LaTex形式的数学公式，因此选择了这方面最流行的库<a href="https://www.mathjax.org/" target="_blank">MathJax</a>。</p>
+<p>与代码相同，数学公式也有行内(inline)和区块(block)两种，下面展示了这两种写法</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 </code></th>
+<th><code>When $a \ne 0$, there are two solutions to </code>(ax^2 + bx + c = 0)<code>and they are: $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Hugo官方其实给了一个<a href="https://gohugo.io/content-management/formats/#enable-mathjax" target="_blank">解决办法</a>，分为三步：</p>
+<ol>
+<li>
+<p>引入<code>&lt;script&gt;</code>标签</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 </code></th>
+<th><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt; &lt;/script&gt; </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>需要确保这段代码嵌入网站所有页面中，因此把它添加到<code>layouts/partials/head.html</code>文件中。</p>
+</li>
+<li>
+<p>行内公式和特殊字符转义</p>
+<p>第一步执行完后行内公式依然无法显示，如下划线<code>_</code>等特殊字符转义也有问题。因此需要继续添加如下代码，仍然是<code>layouts/partials/head.html</code>文件，两段代码前者做了一些配置，后者自动给<code>className</code>加<code>has-jax</code>后缀。</p>
+</li>
+<li>
+<p>CSS调整</p>
+<p>最后还需要在CSS中对这种特殊的MathJax进行样式处理，否则行内公式的显示会很奇怪。</p>
+<table>
+<thead>
+<tr>
+<th><code>1 2 3 4 5 6 7 </code></th>
+<th><code>code.has-jax {    font: inherit;    font-size: 100%;    background: inherit;    border: inherit;    color: #515151; } </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p>然后以上方法步骤繁琐最后还不一定起作用，因此采用把所有修改写成一个<code>layouts/partials/mathjax.html</code>文件的方法，把官方提到的三处修改合并成一个partial，然后把MathJax的CDN修改到国内。</p>
+<p>最后把以上partial模板添加到<code>head.html</code>模板中</p>
+<table>
+<thead>
+<tr>
+<th><code>1 </code></th>
+<th><code>{{ partial &quot;mathjax.html&quot; . }} </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>但直接修改主题中的文件并不合适，因为原作者可能会进行一定的更新（对我这样的半吊子很依赖作者对主题的更新），好在Hugo对文件的寻找是有优先级的，会首先在项目文件中寻找相应的渲染模板，然后才去主题文件夹寻找，因此将<code>layouts/partials/mathjax.html</code>和<code>layouts/partials/head.html</code>这两个修改后的文件复制到Hugo项目的相同位置，此时就可以直接反馈在页面上了。此时在hugo项目根目录查看目录结构如下：</p>
+<p>| <code>1 2 3 4 5 6 7 8 </code> | <code>$ ls archetypes/  content/  layouts/    static/ config.toml  data/     resources/  themes/ $ find layouts -type f | xargs ls -l -rw-r--r-- 1 lylw1 197609 2679 11月 12 15:51 layouts/partials/head.html -rw-r--r-- 1 lylw1 197609 1056 11月 12 15:51 layouts/partials/mathjax.html </code> |
+| &mdash;&mdash;&mdash;&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; |
+|                    |                                                              |</p>
+<h2 id="待完成">待完成<a class="anchorjs-link" href="#%e5%be%85%e5%ae%8c%e6%88%90"></a></h2><ul>
+<li>RSS</li>
+<li>站内搜索</li>
+<li>CDN，可参考<a href="https://mogeko.me/2019/056/" target="_blank">为博客添加免费的 CDN (Cloudflare)</a></li>
+<li>SEO</li>
+</ul>
+<hr>
+<ol>
+<li><a href="https://gohugo.io/templates/menu-templates/" target="_blank">菜单栏添加页面</a> <a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fnref:1" target="_blank">↩︎</a></li>
+<li><a href="https://discourse.gohugo.io/t/ordering-menu-items/1841" target="_blank">菜单栏标题排序</a> <a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fnref:2" target="_blank">↩︎</a></li>
+<li><a href="https://note.qidong.name/2017/06/24/hugo-highlight" target="_blank">Hugo中添加代码高亮支持</a> <a href="https://shuzang.github.io/2019/hugo-blog-advanced-setup/#fnref:3" target="_blank">↩︎</a></li>
+</ol>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/hugo-%E6%B7%BB%E5%8A%A0-valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" data-toggle="tooltip" data-placement="top" title="Hugo添加Valine评论系统">
+              Previous<br>
+              <span>Hugo添加Valine评论系统</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/hugo%E5%BC%80%E5%8F%91%E4%B8%BB%E9%A2%98-%E6%A8%A1%E6%9D%BF/" data-toggle="tooltip" data-placement="top" title="hugo开发主题-模板">
+              Next<br>
+              <span>hugo开发主题-模板</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://weibo.com/u/5337408690/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://space.bilibili.com/johndoe" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-bilibili fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; 阿广的blog 2022  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>
